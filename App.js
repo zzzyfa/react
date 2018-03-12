@@ -5,19 +5,26 @@ import { AppRegistry, StyleSheet, Text, View, Image, Button, Alert } from 'react
 
 export default class LotsOfStyles extends Component {
   handleEvent() {
-    Alert.alert('You clicked a button!');
+    const fiftyFifty = Math.random() < 0.5;
+    if (fiftyFifty == true) {
+      Alert.alert('You are cool!');
+    } else {
+      Alert.alert('You are awesome!');
+    }
+    
    }
   render() {
-
+   
     return (
       <View>
         <Text style={{marginTop:50}}></Text>
         <Text style={styles.bigpurple}>Welcome</Text>
         <Text style={styles.red}>Hi, it's Syfa</Text>
         <Image
-          style={{width: 500, height: 400, alignSelf:'center', marginTop:50}}
+          style={{width: 500, height: 400, alignSelf:'center', marginTop:30}}
           source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Endangered_Red_Panda.jpg'}}
         />
+        <Text style={styles.red}>Click this button again and again for a 50% chance of getting a different result:</Text>
         <View style={styles.buttonContainer}>
           <Button onPress={this.handleEvent} title="Click Me" />
         </View>
@@ -36,13 +43,14 @@ const styles = StyleSheet.create({
   red: {
     color: 'red',
     textAlign: 'center',
+    marginTop:20,
   },
   buttonContainer: {
     backgroundColor: '#2E9298',
     borderRadius: 10,
     padding: 10,
     width: 300,
-    marginTop:40,
+    marginTop:20,
     alignSelf: 'center',
     shadowColor: '#000000',
     shadowOffset: {
