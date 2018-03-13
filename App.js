@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AppRegistry, StyleSheet, Text, View, Image, Button, Alert } from 'react-native';
+import { AppRegistry, StyleSheet, Text, View, Image, Button, Alert} from 'react-native';
 
 export default class LotsOfStyles extends Component {
   handleEvent() {
@@ -14,25 +14,30 @@ export default class LotsOfStyles extends Component {
   render() {
    
     return (
-      <View style={styles.container}> 
-      
-      <View>
-        <Text style={{marginTop:50}}></Text>
-        <Text style={styles.bigpurple}>Welcome</Text>
-        <Text style={styles.red}>Hi, it's Syfa</Text>
-      <View>  
-        <Image
-          style={{width: 500, height: 300, alignSelf:'center', marginTop:30}}
+      <View style={styles.container}>
+       
+        <View style={styles.box1}>
+          <Text style={styles.bigpurple}>Welcome</Text>
+          <Text style={styles.red}>Hi, it's Syfa</Text>
+        </View>
+       
+        <View style={styles.box2}>  
+          <Image
+          style={{ flex:1, width: 500, alignSelf:'center'}} resizeMode="stretch"
           source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Endangered_Red_Panda.jpg'}}
-        />
-      </View>  
-        <Text style={styles.red}>Click this button again and again for a 50% chance of getting a different result:</Text>
-        <View style={styles.buttonContainer}>
+          />
+        </View>  
+        
+        <View style={styles.box3}>
+          <Text style={styles.red}>Click this button again and again for a 50% chance of getting a different result:</Text>
+          
+          <View style={styles.buttonContainer}>
           <Button onPress={this.handleEvent} title="Click Me" />
+          </View>
+        
         </View>
       </View>
-
-      </View>
+      
     );
   }
 }
@@ -40,18 +45,36 @@ export default class LotsOfStyles extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: 'column'
+    flexDirection: 'column',
+    
+  },
+  box1: {
+    flex:0.8,
+    backgroundColor: '#2196F3',
+    justifyContent: 'center',
+  },
+  box2: {
+    flex:2,
+    backgroundColor: '#8BC34A',
+    justifyContent: 'center',
+  },
+  box3: {
+    flex: 1,
+    backgroundColor: '#e3aa1a',
+    justifyContent: 'center',
   },
   bigpurple: {
     color: 'purple',
     fontWeight: 'bold',
     fontSize: 30,
     textAlign: 'center',
+    marginBottom: 10,
+    
   },
   red: {
-    color: 'red',
+    color: 'white',
     textAlign: 'center',
-    marginTop:20,
+   
   },
   buttonContainer: {
     backgroundColor: '#2E9298',
