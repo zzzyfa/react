@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image, Button, Alert } from 'react-native';
 
-
-
 export default class LotsOfStyles extends Component {
   handleEvent() {
     const fiftyFifty = Math.random() < 0.5;
@@ -16,24 +14,34 @@ export default class LotsOfStyles extends Component {
   render() {
    
     return (
+      <View style={styles.container}> 
+      
       <View>
         <Text style={{marginTop:50}}></Text>
         <Text style={styles.bigpurple}>Welcome</Text>
         <Text style={styles.red}>Hi, it's Syfa</Text>
+      <View>  
         <Image
-          style={{width: 500, height: 400, alignSelf:'center', marginTop:30}}
+          style={{width: 500, height: 300, alignSelf:'center', marginTop:30}}
           source={{uri: 'https://upload.wikimedia.org/wikipedia/commons/b/b2/Endangered_Red_Panda.jpg'}}
         />
+      </View>  
         <Text style={styles.red}>Click this button again and again for a 50% chance of getting a different result:</Text>
         <View style={styles.buttonContainer}>
           <Button onPress={this.handleEvent} title="Click Me" />
         </View>
+      </View>
+
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column'
+  },
   bigpurple: {
     color: 'purple',
     fontWeight: 'bold',
