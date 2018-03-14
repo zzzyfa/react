@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import { AppRegistry, StyleSheet, Text, View, Image, Button, Alert} from 'react-native';
 
+const cool = Alert.alert('You are cool!');
+const awesome = Alert.alert('You are awesome!');
+
 export default class LotsOfStyles extends Component {
-  handleEvent() {
-    const fiftyFifty = Math.random() < 0.5;
-    if (fiftyFifty == true) {
-      Alert.alert('You are cool!');
-    } else {
-      Alert.alert('You are awesome!');
-    }
-    
-   }
+
+   constructor(props) {
+    super(props);
+    this.state = {alert: cool};
+    this.changeAlert = this.changeAlert.bind(this);
+  }
+
+  changeAlert() {
+    const newAlert = this.state.alert == cool ? awesome : cool;
+    this.setState({alert: newAlert})
+  }
   render() {
-   
+    
+    
     return (
       <View style={styles.container}>
        
@@ -32,7 +38,7 @@ export default class LotsOfStyles extends Component {
           <Text style={styles.red}>Click this button again and again for a 50% chance of getting a different result:</Text>
           
           <View style={styles.buttonContainer}>
-          <Button onPress={this.handleEvent} title="Click Me" />
+          <Button onPress={this.changeAlert} title="Click Me" />
           </View>
         
         </View>

@@ -8,5 +8,8 @@ The code contains a conditional rendering which uses Math.random so if you click
 
 
 
-!-- UPDATE --!
+!-- UPDATE 1--!
 Now i divided the content into 3 different view containers which each uses a different value of flex. I used justifyContent property so the content always floats in the middle. For the image i also used flex and resizeMode so i think it should fit.
+
+!-- UPDATE 2--!
+I have applied state into the button to change the alert shown. If the current state it says 'You are cool!' then the next alert shown will be 'You are awesome!' and vice versa.
