@@ -1,0 +1,164 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+?>
+<?php
+/** @var \Amasty\Rma\Block\Guest\View $block */
+/** @var \Amasty\Rma\Model\Request $_request */
+$_request = $block->getData('rma_request');
+/** @var \Magento\Sales\Model\Order $_order */
+$_order = $block->getData('rma_order');
+$_shippingConfirmation = $block->getShippingConfirmation();
+?>
+
+<div class="actions order-actions-toolbar">
+<?php if ($_request->allowPrintLabel()): ?>
+    <script>
+        function amrma_print() {
+            var params = "menubar=yes,location=yes,resizable=no,scrollbars=no,status=yes,width=500,height=500";
+            window.open('<?= $block->getExportUrl()?>', "<?= __('Printing')?>", params);
+        }
+
+        function amrma_confirm_shipping() {
+            <?php if (!empty($_shippingConfirmation)): ?>
+            if (confirm(<?= json_encode($block->escapeHtml($_shippingConfirmation))?>)) {
+                document.location.href = '<?= $block->getConfirmUrl()?>';
+            }
+            <?php else: ?>
+            document.location.href = '<?= $block->getConfirmUrl()?>';
+            <?php endif ?>
+        }
+    </script>
+    
+    <?php if ($block->getIsAllowPrintLabel()): ?>
+    <a class="action print" href="javascript:amrma_print();">
+        <span><?= __("Print Label")?></span>
+    </a>
+    <?php endif?>
+    <a class="action reorder" href="javascript:amrma_confirm_shipping();">
+        <span><?= __("Confirm Shipping")?></span>
+    </a>
+<?php endif ?>
+</div>
+
+<div class="block block-dashboard-info">
+    <div class="block-content">
+        <div class="box box-information">
+            <strong class="box-title">
+                <span><?= __('Request Information') ?></span>
+            </strong>
+            <div class="box-content">
+                <?= __('Request ID') ?>: <?= $block->escapeHtml($_request->getId()) ?><br />
+                <?= __('Order ID') ?>: <a href="<?= $block->getOrderUrl($_request) ?>"><?= $block->escapeHtml($_request->getData('increment_id')) ?></a><br />
+                <?= __('Date') ?>: <?= $block->formatDate($_request->getData('created_at')) ?><br />
+                <?= __('Email Address') ?>: <?= $block->escapeHtml($_order->getCustomerEmail()) ?><br />
+                <?= __('Status') ?>: <?= $block->escapeHtml($_request->getStatusLabel()) ?><br />
+                <?php if ($_request->isStatusAllowPrintLabel()): ?>
+                    <?= __('Is Shipped') ?>: <?= $_request->getShippedLabel() ?><br/>
+                <?php endif ?>
+            </div>
+        </div>
+        <div class="box box-address">
+            <strong class="box-title">
+                <span><?= __('Shipping Address') ?></span>
+            </strong>
+            <div class="box-content">
+                <address><?= $block->getAddress() ?></address>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php if ($fields = $_request->getExtraFields()): ?>
+<div class="block block-dashboard-info">
+    <div class="block-title"><strong><?= __($block->getExtraTitle());?></strong></div>
+    <div class="block-content">
+        <div class="box box-information">
+            <div class="box-content">
+                <?php foreach ($fields as $field):?>
+                    <?= $field['label']?>: <?= $field['value']?><br/>
+                <?php endforeach ?>
+            </div>
+        </div>
+    </div>
+</div>
+<?php endif ?>
+
+<h3 class="box-title"><?= __('Items') ?></h3>
+<div class="table-wrapper">
+    <table class="data table table-order-items history" id="my-rma-table">
+        <thead>
+        <tr>
+            <th scope="col" class="col"><?= __('Product Name') ?></th>
+            <th scope="col" class="col"><?= __('SKU') ?></th>
+            <th scope="col" class="col"><?= __('Reason') ?></th>
+            <th scope="col" class="col"><?= __('Condition') ?></th>
+            <th scope="col" class="col"><?= __('Resolution') ?></th>
+            <th scope="col" class="col"><?= __('Qty') ?></th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <?php /** @var \Amasty\Rma\Model\Item $item */
+        foreach ($block->getData('items') as $key => $item): ?>
+            <tr>
+                <td class="col"><?= $block->escapeHtml($item->getData('name')) ?></td>
+                <td class="col"><?= $block->escapeHtml($item->getData('sku')) ?></td>
+                <td class="col"><?= $block->escapeHtml($item->getData('reason')) ?></td>
+                <td class="col"><?= $block->escapeHtml($item->getData('condition')) ?></td>
+                <td class="col"><?= $block->escapeHtml($item->getData('resolution')) ?></td>
+                <td class="col"><?= $block->escapeHtml($item->getData('qty')); ?></td>
+            </tr>
+        <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+
+<form method="post" id="rma_comment" action="<?= $block->getSubmitUrl() ?>" enctype="multipart/form-data" data-mage-init='{"validation":{}}'>
+    <div class="box">
+        <div class="box-content">
+            <div class="info-box">
+                <h3 class="box-title"><?= __('Leave Comment') ?></h3>
+                <p class="box-content">
+                    <textarea id="rma_comment_text" cols="5" rows="3" name="comment" data-validate="{required:true}"></textarea>
+                </p>
+                <div>
+                    <input type="file" name="file"/>
+                </div>
+                <div class="box-content buttons-set">
+                    <button type="submit" class="action primary" id="submit.save"><?= __('Submit Comment')?></button>
+                </div>
+                <ul class="note-list box-content">
+                    <?php $lastShow = $_request->getLastShow();?>
+                    <?php /** @var \Amasty\Rma\Model\Comment $_comment */
+                    foreach ($block->getData('comments') as $_comment): ?>
+                        <?php $created = $_comment->getCreatedAt()  ;?>
+                        <li id="comment_<?= $_comment->getId()?>"<?php if ($lastShow <= $created  && $_comment->getIsAdmin()) echo "style='background-color: #F4F4F4;'";?>>
+                            <strong><?= $block->formatDate($created) ?> <?= $block->formatTime($created) ?></strong>
+                            <span class="separator">|</span>
+                            <strong>
+                                <?php if ($_comment->getData('is_admin')): ?>
+                                    <?= __('Customer Service')?>
+                                <?php else: ?>
+                                    <?= $block->escapeHtml($block->getCustomerName())?>
+                               <?php endif; ?>
+                            </strong>
+                            <br />
+                            <span>
+                                <?= $block->escapeHtml($_comment->getCommentText(), ['b', 'br', 'strong', 'i', 'u']); ?>
+                            </span>
+                            <?php /** @var \Amasty\Rma\Model\File $_file */
+                            foreach ($block->getFiles($_comment->getId()) as $_file): ?>
+                                <br/><a href="<?= $_file->getHref();?>"><?= $block->escapeHtml($_file->getData('name'))?></a>
+                            <?php endforeach; ?>
+                        </li>
+                    <?php endforeach; ?>
+                    <?php $_request->updateLastShow();?>
+                </ul>
+            </div>
+        </div>
+    </div>
+</form>

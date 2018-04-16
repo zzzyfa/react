@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <!-- Cms Banner -->
+    <route url="/V1/cmsBanner/:bannerId" method="GET">
+        <service class="Althea\Cms\Api\BannerRepositoryInterface" method="getFormattedById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsBanner/search" method="GET">
+        <service class="Althea\Cms\Api\BannerRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsBanner" method="POST">
+        <service class="Althea\Cms\Api\BannerRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Althea_Cms::banner"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsBanner/:id" method="PUT">
+        <service class="Althea\Cms\Api\BannerRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Althea_Cms::banner"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsBanner/:bannerId" method="DELETE">
+        <service class="Althea\Cms\Api\BannerRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Althea_Cms::banner"/>
+        </resources>
+    </route>
+    <!-- Cms Page -->
+    <route url="/V1/cmsPage/searchStore" method="GET">
+        <service class="Althea\Cms\Api\PageManagementInterface" method="getByIdentifier"/>
+        <resources>
+            <resource ref="Althea_Cms::page"/>
+        </resources>
+    </route>
+    <!-- Cms Alert -->
+    <route url="/V1/cmsAlert/:alertId" method="GET">
+        <service class="Althea\Cms\Api\AlertRepositoryInterface" method="getById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsAlert/:alertId/storeId/:storeId" method="GET">
+        <service class="Althea\Cms\Api\AlertRepositoryInterface" method="getStoreSpecificById"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsAlert/search" method="GET">
+        <service class="Althea\Cms\Api\AlertRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsAlert" method="POST">
+        <service class="Althea\Cms\Api\AlertRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Althea_Cms::alert"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsAlert/:id" method="PUT">
+        <service class="Althea\Cms\Api\AlertRepositoryInterface" method="save"/>
+        <resources>
+            <resource ref="Althea_Cms::alert"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsAlert/:alertId" method="DELETE">
+        <service class="Althea\Cms\Api\AlertRepositoryInterface" method="deleteById"/>
+        <resources>
+            <resource ref="Althea_Cms::alert"/>
+        </resources>
+    </route>
+    <route url="/V1/cmsAlert/welcome/storeId/:storeId" method="GET">
+        <service class="Althea\Cms\Api\AlertRepositoryInterface" method="getStoreSpecificNewSignUp"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+</routes>

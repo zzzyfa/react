@@ -1,0 +1,215 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <section id="currencymanager"
+                 translate="label"
+                 type="text"
+                 sortOrder="60"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <label>Currency Manager</label>
+            <tab>althea</tab>
+            <resource>Althea_CurrenyManager::currencymanager</resource>
+            <group id="general"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Currency Options</label>
+                <field id="heading_frontend"
+                       translate="label"
+                       type="text"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Frontend Specific Options</label>
+                    <frontend_model>Althea\CurrencyManager\Block\Adminhtml\System\Config\Form\Field\Separator</frontend_model>
+                </field>
+                <field id="enabled"
+                       translate="label"
+                       type="select"
+                       sortOrder="20"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled for Frontend</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="excludecheckout"
+                       translate="label"
+                       type="select"
+                       sortOrder="30"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Exclude for Checkout</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="heading_admin"
+                       translate="label"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Admin Specific Options</label>
+                    <frontend_model>Althea\CurrencyManager\Block\Adminhtml\System\Config\Form\Field\Separator</frontend_model>
+                </field>
+                <field id="enabledadm"
+                       translate="label"
+                       type="select"
+                       sortOrder="50"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Enabled for Admin</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="input_admin"
+                       translate="label"
+                       type="select"
+                       sortOrder="60"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Exclude for Inputs</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="enabledadm">1</field>
+                    </depends>
+                </field>
+                <field id="heading_global"
+                       translate="label"
+                       type="text"
+                       sortOrder="70"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Currency Options (Global)</label>
+                    <frontend_model>Althea\CurrencyManager\Block\Adminhtml\System\Config\Form\Field\Separator</frontend_model>
+                </field>
+                <field id="precision"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="80"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Display Precision</label>
+                    <comment><![CDATA[Number of decimal (e.g. 0, 1, 2). Default: 0<br>Examples<br>4 => 12.3811<br>3 => 12.381<br>2 => 12.38<br>1 => 12.4<br>0 => 12<br>-1 => 10]]></comment>
+                </field>
+                <field id="min_decimal_count"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="90"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Minimum number of digits after the decimal point</label>
+                    <comment><![CDATA[Discard zeroes, leaving specified number of them. Cannot be greater than Display Precision setting. Default: 2. Available values: 1, 2, 3, 4.<br>Examples:<br>for value = 0<br> 9.0000 => 9<br> 9.9999 => 9.9999<br> 9.9000 => 9.9<br><br> for value = 2<br> 9.0000 => 9.00<br> 9.9999 => 9.9999<br> 9.9000 => 9.90]]></comment>
+                </field>
+                <field id="cutzerodecimal"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="100"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Cut Zero Decimals</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[If Yes price will be 99 instead of 99.00, but 99.99 if price 99.99. Unlike Display Precision, this setting discards only zeroes.<br>Example:<br>99.99 => 99.99<br>99.00 => 99]]></comment>
+                </field>
+                <field id="cutzerodecimal_suffix"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="110"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Replaces Cuted Zero Decimals</label>
+                    <comment>Used only if Cut Zero Decimals = Yes, default ",-"</comment>
+                    <depends>
+                        <field id="cutzerodecimal">1</field>
+                    </depends>
+                </field>
+                <field id="position"
+                       translate="label"
+                       type="select"
+                       sortOrder="120"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Symbol Position</label>
+                    <source_model>Althea\CurrencyManager\Model\Config\Source\TypePosition</source_model>
+                </field>
+                <field id="display"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="130"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Currency Symbol Use</label>
+                    <source_model>Althea\CurrencyManager\Model\Config\Source\TypeSymbolUse</source_model>
+                    <comment>e.g. Symbol = Ls, Short name = LVL, Name = Latvian Lats</comment>
+                </field>
+                <field id="zerotext"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="140"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Replace Zero Price to</label>
+                    <comment><![CDATA[Leave empty for disable replace]]></comment>
+                </field>
+                <field id="heading_specific"
+                       translate="label"
+                       type="text"
+                       sortOrder="150"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Currency Options (For Specific Currency)</label>
+                    <frontend_model>Althea\CurrencyManager\Block\Adminhtml\System\Config\Form\Field\Separator</frontend_model>
+                </field>
+                <field id="symbolreplace"
+                       translate="label"
+                       type="select"
+                       sortOrder="160"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Currency Specific Options</label>
+                    <frontend_model>Althea\CurrencyManager\Block\Adminhtml\SymbolReplace</frontend_model>
+                    <backend_model>Magento\Config\Model\Config\Backend\Serialized\ArraySerialized</backend_model>
+                </field>
+            </group>
+            <group id="additional"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Additional Options</label>
+                <field id="fix_currency_switch_url"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Fix URL</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <comment><![CDATA[In Magento by default when customer switches to another currency, he stays on the same page, but all parameters are omitted.<br><br><b>before switch:</b><br>site.com/category.html?color=24&price=100-200<br><b>after switch:</b><br>site.com/category.html<br><br>This setting allows to return customer to the same address, where he was before switching currency.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

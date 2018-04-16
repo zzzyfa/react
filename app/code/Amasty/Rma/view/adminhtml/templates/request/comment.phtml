@@ -1,0 +1,86 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+?>
+<div class="entry-edit form-inline">
+    <fieldset class="fieldset admin__fieldset" id="comments_base_fieldset">
+        <legend class="admin__legend legend">
+            <span><?= __('Comments History') ?></span>
+        </legend>
+        <br>
+
+        <div id="order_history_block" class="edit-order-comments">
+            <div class="order-history-block" id="history_form">
+                <div class="admin__field">
+                    <label for="history_status" class="admin__field-label"><?= __('Status') ?></label>
+                    <div class="admin__field-control">
+                        <select name="status_id" id="status_id" class="admin__control-select">
+                            <?php foreach ($block->getStatuses()->asArray() as $_code => $_label): ?>
+                                <option value="<?= $_code ?>"<?php if ($_code == $block->getRequest()->getStatusId()): ?> selected="selected"<?php endif; ?>><?= $this->escapeHtml($_label) ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="admin__field">
+                    <label for="comment" class="admin__field-label">
+                        <?= __('Comment') ?>
+                    </label>
+
+                    <div class="admin__field-control">
+                        <textarea name="comment"
+                            id="comment"
+                            class="admin__control-textarea"></textarea>
+                    </div>
+                </div>
+
+                <div class="admin__field">
+                    <div class="order-history-comments-options">
+                        <div class="admin__field admin__field-option">
+                            <input type="file" name="file"/>
+                        </div>
+
+                        <div class="admin__field admin__field-option">
+                            <input name="notify_customer"
+                                   type="checkbox"
+                                   id="is_customer_notified"
+                                   class="admin__control-checkbox"
+                                   <?= $block->getIsNotifyCustomer() ? 'checked' : ''?>
+                                   value="1" />
+                            <label class="admin__field-label" for="is_customer_notified">
+                                <?= __('Notify Customer by Email') ?>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="order-history-comments-actions">
+                        <input title="Submit Comment" type="submit" class="action-default scalable action-save action-secondary" name="comment_submit" value="Submit Comment">
+                        </input>
+                    </div>
+                </div>
+            </div>
+
+            <ul class="note-list">
+                <?php foreach ($block->getComments() as $_item): ?>
+                    <li class="note-list-item">
+                        <span class="note-list-time"><?php /* @escapeNotVerified */ echo $block->formatDate($_item->getCreatedAt(), \IntlDateFormatter::MEDIUM) ?></span>
+                        <span class="note-list-time"><?php /* @escapeNotVerified */ echo $block->formatTime($_item->getCreatedAt(), \IntlDateFormatter::MEDIUM) ?></span>
+                        <?php echo $_item->getIsAdmin() == 1 ? __('Admin') : __('Customer') ?>
+
+                        <?php if ($value = $_item->getCommentText()): ?>
+                            <div class="note-list-comment"><?php echo $block->escapeHtml($value, ['b', 'br', 'strong', 'i', 'u', 'a']) ?></div>
+                        <?php endif; ?>
+
+                        <?php foreach ($block->getFiles($_item->getId()) as $_file): ?>
+                            <div><a href="<?php print $_file->getHref();?>"><?php echo $this->escapeHtml($_file->getName())?></a></div>
+                        <?php endforeach ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+
+        </div>
+    </fieldset>
+</div>

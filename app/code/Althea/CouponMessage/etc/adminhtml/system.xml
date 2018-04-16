@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <section id="couponmessage"
+                 translate="label"
+                 type="text"
+                 sortOrder="20"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <label>Custom Coupon Message</label>
+            <tab>althea</tab>
+            <resource>Althea_CouponMessage::couponmessage</resource>
+            <group id="general"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="is_enabled"
+                       translate="label"
+                       type="select"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Custom Coupon Message</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="msg_default"
+                       translate="label"
+                       type="textarea"
+                       sortOrder="20"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Default Error Message</label>
+                    <comment>You can use shortcode %s to display the coupon code</comment>
+                </field>
+                <field id="msg_not_exist"
+                       translate="label"
+                       type="textarea"
+                       sortOrder="30"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Coupon Code Does Not Exist</label>
+                    <comment>You can use shortcode %s to display the coupon code</comment>
+                </field>
+                <field id="msg_invalid_rule"
+                       translate="label"
+                       type="textarea"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Unmet Rule Conditions</label>
+                    <comment>You can use shortcode %s to display the coupon code</comment>
+                </field>
+                <field id="msg_expired"
+                       translate="label"
+                       type="textarea"
+                       sortOrder="50"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Coupon Code Expired</label>
+                    <comment>You can use shortcode %s to display the coupon code</comment>
+                </field>
+                <field id="msg_invalid_customer_group"
+                       translate="label"
+                       type="textarea"
+                       sortOrder="60"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Invalid Customer Group</label>
+                    <comment>You can use shortcode %s to display the coupon code</comment>
+                </field>
+                <field id="msg_overlimit"
+                       translate="label"
+                       type="textarea"
+                       sortOrder="70"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Usage Limit Exceeded</label>
+                    <comment>You can use shortcode %s to display the coupon code</comment>
+                </field>
+                <field id="msg_overlimit_customer_group"
+                       translate="label"
+                       type="textarea"
+                       sortOrder="80"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Usage Limit Exceeded (Customer Group)</label>
+                    <comment>You can use shortcode %s to display the coupon code</comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

@@ -1,0 +1,69 @@
+<?php /* @var \Althea\Aftership\Block\Order\View\Track $this */ ?>
+<?php if ($mageTrack = $this->getMageTracking()): ?>
+    <div class="block block-order-details-view">
+        <div class="block-title">
+            <strong><?php /* @escapeNotVerified */ echo __('Shipment Tracking') ?></strong>
+        </div>
+        <div class="block-content">
+            <?php if ($tracking = $this->getTracking()): ?>
+                <div class="track-block">
+                    <div class="col-xs-12" style="padding-left: 0;padding-right: 0;">
+                        <div class="text-xs-center tag-<?php echo strtolower($tracking['tag']); ?>">
+                            <p class="tag text-tight"><?php echo strtoupper($this->getTrackingTagLabel()); ?></p>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="checkpoints">
+                            <ul class="checkpoints__list">
+                                <?php if (!empty($tracking['checkpoint']) && $checkpoint = $tracking['checkpoint']): ?>
+                                    <li class="checkpoint">
+                                        <div class="checkpoint__time">
+                                            <strong><?php echo $this->formatDateTime($checkpoint['checkpoint_time'], 'M d, Y'); ?></strong>
+                                            <div class="hint"><?php echo $this->formatDateTime($checkpoint['checkpoint_time'], 'h:i A'); ?></div>
+                                        </div>
+                                        <div class="checkpoint__icon <?php echo strtolower($checkpoint['tag']); ?>"></div>
+                                        <div class="checkpoint__content">
+                                            <strong><?php echo $checkpoint['message']; ?> <span class="checkpoint__courier-name"><?php echo strtoupper($this->getCourierTitle()); ?></span></strong>
+                                            <?php if (!empty($checkpoint['city'])): ?>
+                                                <div class="hint"><?php echo $checkpoint['city']; ?></div>
+                                            <?php elseif (!empty($checkpoint['country_name'])): ?>
+                                                <div class="hint"><?php echo $checkpoint['country_name']; ?></div>
+                                            <?php endif; ?>
+                                        </div>
+                                    </li>
+                                <?php endif; ?>
+                            </ul>
+                        </div>
+                    </div>
+                    <?php if (empty($tracking['checkpoint'])): ?>
+                        <div class="col-xs-12 text-xs-center p-y-1">
+                            <div class="col-xs-12">
+                                <p class="text-tight"><?php echo $this->__('Please try again later, we are awaiting tracking info from the carrier.'); ?></p>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            <?php else: ?>
+                <div class="track-block">
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <div class="text-xs-center tag-pending">
+                                <p class="tag text-tight"><?php echo strtoupper($this->getTrackingTagLabel()); ?></p>
+                            </div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="checkpoints">
+                                <ul class="checkpoints__list"></ul>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 text-xs-center p-y-1">
+                            <div class="col-xs-12">
+                                <p class="text-tight"><?php echo $this->__('Please try again later, we are awaiting tracking info from the carrier.'); ?></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </div>
+<?php endif; ?>

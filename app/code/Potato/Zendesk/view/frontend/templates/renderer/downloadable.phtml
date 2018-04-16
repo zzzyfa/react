@@ -1,0 +1,39 @@
+<?php
+/** @var $block \Magento\Downloadable\Block\Sales\Order\Item\Renderer\Downloadable */
+?>
+<?php $item = $block->getItem() ?>
+<?php if ($options = $block->getItemOptions()): ?>
+    <dl class="item-options links">
+        <?php foreach ($options as $option) : ?>
+            <dt class="u-semibold"><?php echo $block->escapeHtml($option['label']) ?>:</dt>
+            <?php if (!$block->getPrintStatus()): ?>
+                <?php $formatedOptionValue = $block->getFormatedOptionValue($option) ?>
+                <dd<?php if (isset($formatedOptionValue['full_view'])): ?> class="tooltip wrapper"<?php endif; ?>>
+                    <?php /* @escapeNotVerified */ echo $formatedOptionValue['value'] ?>
+                    <?php if (isset($formatedOptionValue['full_view'])): ?>
+                        <div class="tooltip content">
+                            <dl class="item options">
+                                <dt><?php echo $block->escapeHtml($option['label']) ?></dt>
+                                <dd><?php /* @escapeNotVerified */ echo $formatedOptionValue['full_view'] ?></dd>
+                            </dl>
+                        </div>
+                    <?php endif; ?>
+                </dd>
+            <?php else: ?>
+                <dd>
+                    <?php echo nl2br($block->escapeHtml((isset($option['print_value']) ? $option['print_value'] : $option['value']))) ?>
+                </dd>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </dl>
+<?php endif; ?>
+<?php /* downloadable */ ?>
+<?php if ($links = $block->getLinks()): ?>
+    <dl class="item-options links">
+        <dt class="u-semibold"><?php /* @escapeNotVerified */ echo $block->getLinksTitle() ?>:</dt>
+        <?php foreach ($links->getPurchasedItems() as $link): ?>
+            <dd><?php echo $block->escapeHtml($link->getLinkTitle()); ?></dd>
+        <?php endforeach; ?>
+    </dl>
+<?php endif; ?>
+

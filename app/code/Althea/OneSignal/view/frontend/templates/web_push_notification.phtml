@@ -1,0 +1,74 @@
+<?php if ($this->getIsEnabled()) { ?>
+    <script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async='async'></script>
+    <script>
+        //get cookie
+        function getCookie(name) {
+
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) return decodeURIComponent(parts.pop().split(";").shift());
+        }
+
+        var OneSignal   = window.OneSignal || [];
+        var currentTags = JSON.parse('<?php echo $this->getCurrentTags(); ?>');
+        var cookieEmail = getCookie('_cus_info_email');
+
+        if (cookieEmail) {
+
+            currentTags['email'] = cookieEmail;
+        }
+
+        OneSignal.push(["init", {
+            appId                : "<?php echo $this->getAppId() ?>",
+            autoRegister         :  <?php echo ($this->getIsAutoRegister()) ? 'true' : 'false' ?>,
+            subdomainName        : "<?php echo $this->getSubdomain() ?>",
+            safari_web_id        : "<?php echo $this->getSafariWebId() ?>",
+            httpPermissionRequest: {
+                enable: true
+            },
+            notifyButton         : {
+                enable: <?php echo ($this->getIsShowNotifyButton()) ? 'true' : 'false' ?>
+            }
+        }]);
+
+        OneSignal.push(function () {
+
+            OneSignal.getTags().then(function (tags) {
+
+                var newTags    = {};
+                var deleteTags = [];
+
+                for (var key in currentTags) { // decide if tags should be updated or deleted
+
+                    if (typeof(tags[key]) !== 'undefined' && !currentTags[key]) {
+
+                        deleteTags.push(key);
+                    } else if (typeof(tags[key]) === 'undefined' || tags[key] != currentTags[key]) {
+
+                        newTags[key] = currentTags[key];
+                    }
+                }
+
+                if (Object.keys(newTags).length !== 0) { // update outdated tags
+
+                    OneSignal
+                        .sendTags(newTags)
+                        .then(function (tagsSent) {
+
+                            console.log("Updated tags: " + JSON.stringify(tagsSent));
+                        });
+                }
+
+                if (deleteTags.length > 0) { // delete outdated tags
+
+                    OneSignal
+                        .deleteTags(deleteTags)
+                        .then(function (tagsDeleted) {
+
+                            console.log("Deleted tags: " + JSON.stringify(tagsDeleted));
+                        });
+                }
+            });
+        });
+    </script>
+<?php } ?>

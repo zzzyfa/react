@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <amrma>
+            <general>
+                <enable_per_item>1</enable_per_item>
+                <guest>1</guest>
+                <multiple_requests>0</multiple_requests>
+                <days></days>
+                <max_days></max_days>
+                <print_label>1</print_label>
+                <route>rma</route>
+            </general>
+            <shipping>
+                <default>1</default>
+                <confirmation>I confirm I've shipped the box with the printed label</confirmation>
+            </shipping>
+            <properties>
+                <reasons>
+                    <not_as_expected>
+                        <value>Not as expected</value>
+                    </not_as_expected>
+                    <broken>
+                        <value>Broken</value>
+                    </broken>
+                </reasons>
+                <conditions>
+                    <damaged>
+                        <value>Damaged</value>
+                    </damaged>
+                    <open>
+                        <value>Open</value>
+                    </open>
+                </conditions>
+                <resolutions>
+                    <refund>
+                        <value>Refund</value>
+                    </refund>
+                    <replace>
+                        <value>Replace</value>
+                    </replace>
+                 </resolutions>
+            </properties>
+            <email>
+                <name>Owner</name>
+                <email>owner@example.com</email>
+                <notify_customer>1</notify_customer>
+                <notify_admin>1</notify_admin>
+            </email>
+            <extra>
+                <title>Bank Details</title>
+                <field_1></field_1>
+                <field_2></field_2>
+                <field_3></field_3>
+                <field_4></field_4>
+                <field_5></field_5>
+            </extra>
+        </amrma>
+    </default>
+</config>

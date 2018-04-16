@@ -1,0 +1,17 @@
+<?php /** @var TemplateMonster\SocialLogin\Block\Account\SocialLogin $block */ ?>
+<div class="block-content block-social-login">
+    <?php if ($block->hasProviders()): ?>
+        <?php foreach ($block->getProviders() as $provider): ?>
+            <div class="actions-toolbar">
+                <div class="full">
+                    <a href="#" data-post='<?php echo $block->getGrantPostData($provider) ?>'
+                       class="<?php echo $block->getProviderCode($provider) ?> action">
+                        <i class="fa fa-<?php echo $block->getProviderCode($provider) ?>"></i>
+                        <span
+                            class="label"><?php echo __('Sign in with') . ' ' . $block->getProviderLabel($provider) ?></span>
+                    </a>
+                </div>
+            </div>
+        <?php endforeach; ?>
+    <?php endif; ?>
+</div>

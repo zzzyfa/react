@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <!-- Althea CMS Banner -->
+    <preference for="Althea\Cms\Api\Data\BannerSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Althea\Cms\Api\Data\BannerInterface" type="Althea\Cms\Model\Banner"/>
+    <preference for="Althea\Cms\Api\BannerRepositoryInterface" type="Althea\Cms\Model\BannerRepository"/>
+    <!-- Althea CMS Alert -->
+    <preference for="Althea\Cms\Api\Data\AlertSearchResultsInterface" type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Althea\Cms\Api\Data\AlertInterface" type="Althea\Cms\Model\Alert"/>
+    <preference for="Althea\Cms\Api\AlertRepositoryInterface" type="Althea\Cms\Model\AlertRepository"/>
+    <!-- Althea CMS Page -->
+    <preference for="Althea\Cms\Api\PageManagementInterface" type="Althea\Cms\Model\PageManagement"/>
+
+    <type name="Magento\Framework\AppInterface">
+        <plugin name="althea_cms_app_interface" type="Althea\Cms\Plugin\AppInterfacePlugin" sortOrder="3"/>
+    </type>
+
+    <type name="Althea\Cms\Plugin\AppInterfacePlugin">
+        <arguments>
+            <argument name="cacheManagement" xsi:type="object">Althea\Cms\Model\CacheManagement</argument>
+            <argument name="configManagement" xsi:type="object">Althea\Cms\Model\ConfigManagement</argument>
+        </arguments>
+    </type>
+
+    <type name="Althea\Cms\Model\CacheManagement">
+        <arguments>
+            <argument name="cacheType" xsi:type="object">Althea\Cms\Model\CacheType</argument>
+            <argument name="keys" xsi:type="array">
+                <item name="base" xsi:type="object">MSP\APIEnhancer\Model\CacheKeyProcessor\Base</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Althea\Cms\Model\ConfigManagement">
+        <arguments>
+            <argument name="paths" xsi:type="array">
+                <item name="banners" xsi:type="string">^/rest/V1/cmsBanner</item>
+                <item name="alerts" xsi:type="string">^/rest/V1/cmsAlert</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Cms\Model\Wysiwyg\Config">
+        <arguments>
+            <argument name="windowSize" xsi:type="array">
+                <item name="height" xsi:type="number">600</item>
+                <item name="width" xsi:type="number">1000</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- Althea CMS Banner -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="althea_cms_banner_listing_data_source" xsi:type="string">Althea\Cms\Model\ResourceModel\Banner\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Althea\Cms\Model\ResourceModel\Banner\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">althea_cms_banner</argument>
+            <argument name="eventPrefix" xsi:type="string">althea_cms_banner_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">banner_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Althea\Cms\Model\ResourceModel\Banner</argument>
+        </arguments>
+    </type>
+    <virtualType name="BannerGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Althea\Cms\Api\Data\BannerInterface" xsi:type="string">Althea\Cms\Api\BannerRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Althea\Cms\Api\Data\BannerInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">althea_cms_banner</item>
+                    <item name="identifierField" xsi:type="string">banner_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
+        <arguments>
+            <argument name="extensionActions" xsi:type="array">
+                <item name="Althea\Cms\Api\Data\BannerInterface" xsi:type="array">
+                    <item name="read" xsi:type="array">
+                        <item name="storeReader" xsi:type="string">Althea\Cms\Model\ResourceModel\Banner\Relation\Store\ReadHandler</item>
+                    </item>
+                    <item name="create" xsi:type="array">
+                        <item name="storeCreator" xsi:type="string">Althea\Cms\Model\ResourceModel\Banner\Relation\Store\SaveHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="storeUpdater" xsi:type="string">Althea\Cms\Model\ResourceModel\Banner\Relation\Store\SaveHandler</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Althea\Cms\Api\Data\BannerInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+    <!-- Althea CMS Alert -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="althea_cms_alert_listing_data_source" xsi:type="string">Althea\Cms\Model\ResourceModel\Alert\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Althea\Cms\Model\ResourceModel\Alert\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">althea_cms_alert</argument>
+            <argument name="eventPrefix" xsi:type="string">althea_cms_alert_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">alert_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Althea\Cms\Model\ResourceModel\Alert</argument>
+        </arguments>
+    </type>
+    <virtualType name="AlertGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Model\Entity\RepositoryFactory">
+        <arguments>
+            <argument name="entities" xsi:type="array">
+                <item name="Althea\Cms\Api\Data\AlertInterface" xsi:type="string">Althea\Cms\Api\AlertRepositoryInterface</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\MetadataPool">
+        <arguments>
+            <argument name="metadata" xsi:type="array">
+                <item name="Althea\Cms\Api\Data\AlertInterface" xsi:type="array">
+                    <item name="entityTableName" xsi:type="string">althea_cms_alert</item>
+                    <item name="identifierField" xsi:type="string">alert_id</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\Operation\ExtensionPool">
+        <arguments>
+            <argument name="extensionActions" xsi:type="array">
+                <item name="Althea\Cms\Api\Data\AlertInterface" xsi:type="array">
+                    <item name="read" xsi:type="array">
+                        <item name="storeReader" xsi:type="string">Althea\Cms\Model\ResourceModel\Alert\Relation\Store\ReadHandler</item>
+                    </item>
+                    <item name="create" xsi:type="array">
+                        <item name="storeCreator" xsi:type="string">Althea\Cms\Model\ResourceModel\Alert\Relation\Store\SaveHandler</item>
+                    </item>
+                    <item name="update" xsi:type="array">
+                        <item name="storeUpdater" xsi:type="string">Althea\Cms\Model\ResourceModel\Alert\Relation\Store\SaveHandler</item>
+                    </item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\EntityManager\HydratorPool">
+        <arguments>
+            <argument name="hydrators" xsi:type="array">
+                <item name="Althea\Cms\Api\Data\AlertInterface" xsi:type="string">Magento\Framework\EntityManager\AbstractModelHydrator</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

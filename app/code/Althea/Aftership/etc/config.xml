@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <aftership_options>
+            <messages>
+                <tracking_domain>https://althea.aftership.com/</tracking_domain>
+                <webhook_key>altheaAftership</webhook_key>
+                <webhook_salt>gayabangsar</webhook_salt>
+            </messages>
+        </aftership_options>
+    </default>
+</config>

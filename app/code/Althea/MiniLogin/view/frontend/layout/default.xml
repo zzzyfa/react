@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2015 Magento. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <css src="Althea_MiniLogin::css/styles.css"/>
+        <script src="Althea_MiniLogin::js/view/minilogin.js"/>
+    </head>
+    <body>
+        <referenceBlock name="top.links">
+            <block class="Althea\MiniLogin\Block\TabTitle" name="mini.login.title" template="tab-title.phtml" cacheable="false"/>
+            <block class="Althea\MiniLogin\Block\MiniLogin" name="mini.login" template="form/login.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

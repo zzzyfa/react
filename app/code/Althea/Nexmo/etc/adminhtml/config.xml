@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <nexmo>
+            <general>
+                <is_enabled>1</is_enabled>
+                <api_key>967cda5a</api_key>
+                <api_secret>0e76fff7c51d17cb</api_secret>
+                <pin_expiry>300</pin_expiry>
+                <exception_msg_request_not_canceled>Please try again after 5 minutes.</exception_msg_request_not_canceled>
+            </general>
+            <web>
+                <is_checkout_verification_enabled>1</is_checkout_verification_enabled>
+            </web>
+        </nexmo>
+    </default>
+</config>

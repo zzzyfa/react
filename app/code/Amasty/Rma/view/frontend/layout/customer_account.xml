@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_account_navigation">
+            <!--HtmlLinkWithUrlBuilder is a virtualType created in frontend/di -->
+            <block class="HtmlLinkWithUrlBuilder" name="customer-account-amasty-rma-link">
+                <arguments>
+                    <argument name="path" xsi:type="string">amasty_rma/customer/history</argument>
+                    <argument name="label" xsi:type="string">My Returns</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

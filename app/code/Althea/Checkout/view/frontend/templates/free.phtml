@@ -1,0 +1,31 @@
+<?php /* @var Althea\Checkout\Block\Onepage $block */ ?>
+<style>
+	.centered {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		min-width: 300px;
+		text-align: center;
+	}
+</style>
+<div id="mobile-checkout-redirect-free" class="centered">
+	<h1>Processing your transaction...</h1>
+</div>
+<script type="text/x-magento-init">
+    {
+        "#mobile-checkout-redirect-free": {
+            "free": {
+                "base_url": "<?php echo $block->getBaseUrl(); ?>",
+                "mcheckout_err_deep_link": "<?php echo \Althea\Checkout\Block\DeepLink::MOBILE_CHECKOUT_ERR_DEEPLINK; ?>"
+            }
+        }
+    }
+</script>
+<script>
+    window.checkoutConfig     = <?php /* @escapeNotVerified */ echo \Zend_Json::encode($block->getCheckoutConfig()); ?>;
+    // Create aliases for customer.js model from customer module
+    window.isCustomerLoggedIn = window.checkoutConfig.isCustomerLoggedIn;
+    window.customerData       = window.checkoutConfig.customerData;
+    window.isShowError        = <?php echo ($this->helper('Althea\Checkout\Helper\Config')->getIsFrontendShowError()) ? "true" : "false"; ?>;
+</script>

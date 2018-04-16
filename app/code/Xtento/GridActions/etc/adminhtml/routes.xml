@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:App/etc/routes.xsd">
+    <router id="admin">
+        <route id="gridactions" frontName="gridactions">
+            <module name="Xtento_GridActions" before="Magento_Backend"/>
+        </route>
+    </router>
+</config>
+<!--
+/**
+ * Product:       Xtento_GridActions (2.1.1)
+ * ID:            pla2jYgPEb1bu8ncBMlGtw6aKM5PQ018LXPJPkLn5XM=
+ * Packaged:      2017-06-01T10:43:07+00:00
+ * Last Modified: 2016-02-25T18:57:42+00:00
+ * File:          app/code/Xtento/GridActions/etc/adminhtml/routes.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

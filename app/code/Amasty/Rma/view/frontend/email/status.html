@@ -1,0 +1,40 @@
+<!--@subject {{var request.getIncrementId()}}: Status has been changed  @-->
+<!--@vars
+{"store url=\"\"":"Store Url",
+"var logo_url":"Email Logo Image Url",
+"var logo_alt":"Email Logo Image Alt",
+"var request.getId()":"RMA ID",
+"var request.getIncrementId()":"Order ID",
+"var request.getCustomerFirstname()":"First Name",
+"var request.getCustomerLastname()":"Last Name",
+"var request.getStatusLabel()":"Status",
+"var request.getPrintLabelUrl()":"Print Label URL",
+"var request.getConfirmShippingUrl()":"Confirm Shipping Url",
+"var comment.getCommentText()":"Comment",
+"var comment.getCommentUrl()":"Comment URL",
+"var comment.getFileUrl()":"File URL",
+"var comment.getFileName()":"File",
+"layout handle=\"amasty_rma_email_items\" request=$request":"Return Items Grid"
+}
+@-->
+
+{{template config_path="design/email/header_template"}}
+
+<div>
+    Dear, {{var request.getCustomerFirstname()}} {{var request.getCustomerLastname()}}<br/>
+    Status has been changed to: {{var request.getStatusLabel()}}<br/><br/>
+    Comment here:<br/>
+    ----------------------------------------------------------------------<br/>
+    {{var comment.getCommentText()}}<br/>
+    ----------------------------------------------------------------------<br/>
+    {{depend comment.getFileUrl()}}
+    <a href="{{var comment.getFileUrl()}}">{{var comment.getFileName()}}</a>
+    {{/depend}}
+
+    {{depend request.allowPrintLabel()}}
+    <a href="{{var request.getPrintLabelUrl()}}">Print label</a> <br/>
+    <a href="{{var request.getConfirmShippingUrl()}}">Confirm shipping</a>
+    {{/depend}}
+</div>
+
+{{template config_path="design/email/footer_template"}}

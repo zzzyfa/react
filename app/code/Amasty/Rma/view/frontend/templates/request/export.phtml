@@ -1,0 +1,70 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+?>
+<?php /** @var \Amasty\Rma\Block\Request\Export $block */
+    $_request = $block->getRmaRequest();
+?>
+<img src="<?= $block->getLogoSrc() ?>" alt="<?= $block->getLogoAlt() ?>" />
+
+<h2><?= __("RMA Return Info")?></h2>
+
+<table class="am-details">
+    <tr>
+        <td class="label"><?= __("Date")?></td>
+        <td><?= $block->formatDate($_request->getData('created_at'), \IntlDateFormatter::MEDIUM)?></td>
+    </tr>
+    <tr>
+        <td class="label"><?= __("ID")?></td>
+        <td><?= $_request->getId()?></td>
+    </tr>
+    <tr>
+        <td class="label"><?= __("Order ID")?></td>
+        <td><?= $_request->getData('increment_id')?></td>
+    </tr>
+    <tr>
+        <td class="label"><?= __("Code")?></td>
+        <td><?= $_request->getData('code')?></td>
+    </tr>
+</table>
+
+<table style="width: 100%;">
+    <tr>
+        <th><strong><?= __("Customer Address")?></strong></th>
+        <th><strong><?= __("Return Department Address")?></strong></th>
+    </tr>
+    <tr>
+        <td><?= $block->getCustomerAddress();?></td>
+        <td><?= $block->getReturnAddress();?></td>
+    </tr>
+</table>
+
+<h2><?= __("Items") ?></h2>
+
+<table class="data-table table" id="my-returns-items-table">
+    <thead>
+    <tr>
+        <th><?= __('Product Name') ?></th>
+        <th><?= __('SKU') ?></th>
+        <th><?= __('Qty') ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php /** @var \Amasty\Rma\Model\Item $item */
+    foreach ($block->getData('items') as $key => $item): ?>
+        <tr>
+            <td><?= $block->escapeHtml($item->getData('name')) ?></td>
+            <td><?= $block->escapeHtml($item->getData('sku')) ?></td>
+            <td><?= $block->escapeHtml($item->getData('qty')); ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+
+<div class="buttons no-print">
+    <button type="button" class="action primary" onclick="window.print()"><?= __("Print") ?></button>
+    <button type="button" class="action" onclick="window.close()"><?= __("Close") ?></button>
+</div>

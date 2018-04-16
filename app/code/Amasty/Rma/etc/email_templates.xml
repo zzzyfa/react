@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+-->
+
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="amrma_email_templates_status_changed"   label="Status Changed"   file="status.html"  type="html" module="Amasty_Rma" area="frontend"/>
+    <template id="amrma_email_templates_admin_comment"    label="Admin Comment"    file="comment_customer.html" type="html" module="Amasty_Rma" area="frontend"/>
+    <template id="amrma_email_templates_customer_comment" label="Customer Comment" file="comment_admin.html"   type="html" module="Amasty_Rma" area="frontend"/>
+    <template id="amrma_email_templates_rma_created"      label="RMA Created"      file="created.html" type="html" module="Amasty_Rma" area="frontend"/>
+</config>

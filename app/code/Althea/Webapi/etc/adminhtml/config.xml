@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <althea_webapi>
+            <general>
+                <is_enabled>0</is_enabled>
+                <msg_title>Notice</msg_title>
+                <msg_content>Althea mobile app is temporarily unavailable. Please try again later.</msg_content>
+            </general>
+        </althea_webapi>
+    </default>
+</config>

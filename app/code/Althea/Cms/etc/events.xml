@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="althea_cms_api_data_bannerinterface_save_before">
+        <observer name="legacy_model_cms_banner_before_save" instance="Magento\Framework\EntityManager\Observer\BeforeEntitySave" />
+    </event>
+    <event name="althea_cms_api_data_bannerinterface_save_after">
+        <observer name="legacy_model_cms_banner_after_save" instance="Magento\Framework\EntityManager\Observer\AfterEntitySave" />
+    </event>
+    <event name="althea_cms_api_data_bannerinterface_delete_before">
+        <observer name="legacy_model_cms_banner_before_delete" instance="Magento\Framework\EntityManager\Observer\BeforeEntityDelete" />
+    </event>
+    <event name="althea_cms_api_data_bannerinterface_delete_after">
+        <observer name="legacy_model_cms_banner_after_delete" instance="Magento\Framework\EntityManager\Observer\AfterEntityDelete" />
+    </event>
+    <event name="althea_cms_api_data_bannerinterface_load_after">
+        <observer name="legacy_model_cms_banner_after_load" instance="Magento\Framework\EntityManager\Observer\AfterEntityLoad" />
+    </event>
+    <event name="althea_cms_api_data_alertinterface_save_before">
+        <observer name="legacy_model_cms_alert_before_save" instance="Magento\Framework\EntityManager\Observer\BeforeEntitySave" />
+    </event>
+    <event name="althea_cms_api_data_alertinterface_save_after">
+        <observer name="legacy_model_cms_alert_after_save" instance="Magento\Framework\EntityManager\Observer\AfterEntitySave" />
+    </event>
+    <event name="althea_cms_api_data_alertinterface_delete_before">
+        <observer name="legacy_model_cms_alert_before_delete" instance="Magento\Framework\EntityManager\Observer\BeforeEntityDelete" />
+    </event>
+    <event name="althea_cms_api_data_alertinterface_delete_after">
+        <observer name="legacy_model_cms_alert_after_delete" instance="Magento\Framework\EntityManager\Observer\AfterEntityDelete" />
+    </event>
+    <event name="althea_cms_api_data_alertinterface_load_after">
+        <observer name="legacy_model_cms_alert_after_load" instance="Magento\Framework\EntityManager\Observer\AfterEntityLoad" />
+    </event>
+</config>

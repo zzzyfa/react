@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Quote\Model\CouponManagement" type="Althea\Quote\Model\Rewrite\CouponManagement"/>
+    <preference for="Magento\Quote\Model\QuoteManagement" type="Althea\Quote\Model\QuoteManagement"/>
+    <preference for="Magento\Quote\Model\Quote\Address" type="Althea\Quote\Model\Quote\Address"/>
+    <type name="Magento\Checkout\Model\PaymentInformationManagement">
+        <plugin name="Althea_Quote::paymentInformationManagementPlugin" type="Althea\Quote\Plugin\PaymentInformationManagement" sortOrder="2"/>
+    </type>
+    <type name="Magento\Quote\Model\QuoteRepository">
+        <plugin name="Althea_Quote::quoteRepositoryPlugin" type="Althea\Quote\Plugin\Model\QuoteRepositoryPlugin" sortOrder="1"/>
+    </type>
+    <type name="Magento\Quote\Model\Quote">
+        <plugin name="Althea_Quote::quotePlugin" type="Althea\Quote\Plugin\Model\Quote" sortOrder="1"/>
+    </type>
+    <type name="Magento\Quote\Model\Cart\Totals\ItemConverter">
+        <plugin name="Althea_Quote::itemConverterPlugin" type="Althea\Quote\Plugin\Model\Cart\Totals\ItemConverterPlugin" sortOrder="1"/>
+    </type>
+</config>

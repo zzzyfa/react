@@ -1,0 +1,118 @@
+.header-top-link-account-link {
+    display: inline-block;
+}
+
+.header-top-link-account-link-content .block-title, .header-top-link-account-link-content .block-content {
+    padding: 0 33px 24px 33px;
+    margin:0;
+}
+
+.header-top-link-account-link .header-top-link-account-link-title .account-tab-title {
+    height: 44px;
+    min-width: 160px;
+    padding: 10px 37px 10px 17px;
+    background-color: #323030;
+    position: relative;
+    cursor: pointer;
+}
+
+.header-top-link-account-link .header-top-link-account-link-title .account-tab-title:after {
+    font-family: "Linearicons";
+    content: "\e93a";
+    font-size: 10px;
+    position: absolute;
+    right: 18px;
+}
+
+.header-top-link-account-link.selected .header-top-link-account-link-title .account-tab-title,
+.header-top-link-account-link .header-top-link-account-link-title .account-tab-title:hover {
+    background-color: #f64b7f;
+}
+
+.header-top-link-account-link span {
+}
+
+.header-top-link-account-link .header-top-link-account-link-title .account-tab-title {
+    color: #ffffff;
+    text-align: left;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content {
+    display: none;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    max-width: 444px;
+    background-color: #ffffff;
+    color: #323030;
+    box-shadow: 0px 2px 15px #00000078;
+}
+
+.header-top-link-account-link.selected .header-top-link-account-link-content {
+    display: block;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .field {
+    margin-bottom: 5px;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .actions-toolbar {
+    flex-direction: row;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .actions-toolbar .secondary {
+    display: flex;
+    flex: 1;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .actions-toolbar .secondary .action,
+.header-top-link-account-link .header-top-link-account-link-content .actions-toolbar .secondary .action:hover{
+     background-color:transparent !important;
+ }
+
+.header-top-link-account-link .header-top-link-account-link-content .actions-toolbar .secondary .action span {
+    font-size: 14px;
+    color: #323030;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .actions-toolbar .primary .action {
+    width: 144px;
+    background-color: #f64b7f;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .actions-toolbar .primary .action span {
+    font-size: 14px;
+    color: #ffffff;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .actions-toolbar .action.new-account {
+    background-color: #00d89c;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .account-info {
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .account-info ul {
+    padding: 3px;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .account-info li {
+    padding: 11px;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .account-info li:hover {
+    background-color: #f5f1ee;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .block-customer-login {
+    padding: 28px 0px 13px 0px;
+    margin-bottom: 0;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .account-info + .block-social-login {
+    display: none;
+}
+
+.header-top-link-account-link .header-top-link-account-link-content .block-content-account {
+    padding-bottom: 0;
+}

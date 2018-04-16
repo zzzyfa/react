@@ -1,0 +1,76 @@
+<div class="rd-navbar-panel-canvas"></div>
+<?php if ($this->getNameInLayout() == 'catalog.topnav' && (!$this->_helper->isVertical())): ?>
+    <?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+    <?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+
+    <nav class="navigation" role="navigation">
+        <!-- RD Navbar Toggle -->
+        <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap">
+            <span>
+                <strong><?php /* @escapeNotVerified */
+                    echo __('Categories') ?> </strong>
+            </span>
+        </button>
+        <!-- END RD Navbar Toggle -->
+        <div class="rd-navbar-nav-wrap">
+            <?php if (!$block->isLoggedIn()): ?>
+                <div class="rd-navbar-nav-login-wrap">
+                    <div class="rd-navbar-nav-login-title">
+                        Get the most out of
+                        <span class="store-name">
+                            Althea
+                        </span>
+                    </div>
+                    <div class="button-wrap">
+                        <a class="button login"
+                           href="<?php echo $block->getCustomerLoginUrl() ?>">
+                            <span>
+                                <?php echo __('Login') ?>
+                            </span>
+                        </a>
+                        <a class="button signup"
+                           href="<?php echo $block->getCustomerRegisterUrl() ?>">
+                            <span>
+                                <?php echo __('Sign Up') ?>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            <?php endif ?>
+            <ul class="rd-navbar-nav">
+                <?php echo $_menu; ?>
+            </ul>
+
+            <?php echo $this->getLayout()
+                ->createBlock('Magento\Cms\Block\Block')
+                ->setBlockId('althea-cms-side-menu')
+                ->toHtml() ?>
+
+            <?php if (!$block->isLoggedIn()): ?>
+                <div class="rd-navbar-nav-addons">
+                    <?php echo $this->getLayout()
+                        ->createBlock('Magento\Cms\Block\Block')
+                        ->setBlockId('mobile-navigation-addons-block')
+                        ->toHtml() ?>
+                </div>
+            <?php endif ?>
+            <?php echo $block->getChildHtml('header2'); ?>
+        </div>
+
+        <div class="rd-navbar-nav-bg" data-rd-navbar-toggle=".rd-navbar-nav-wrap">
+        </div>
+    </nav>
+
+<?php elseif ($this->getNameInLayout() == 'catalog.sidebarnav' && $this->_helper->isVertical()): ?>
+    <?php $columnsLimit = $block->getColumnsLimit() ?: 0; ?>
+    <?php $_menu = $block->getHtml('level-top', 'submenu', $columnsLimit) ?>
+
+    <!-- Sidebar Nav -->
+    <nav class="navigation">
+        <!-- RD Navbar Toggle -->
+        <ul data-mage-init='{"megamenu":{"menus": "li > ul:not(.mm-submenu), .megamenu-wrapper", "responsive":true, "expanded":true, "position":{"my":"left top","at":"right top"}}}'>
+            <?php echo $_menu; ?>
+        </ul>
+    </nav>
+
+<?php endif; ?>

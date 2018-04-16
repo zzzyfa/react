@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="althea_cms_alert_load_after">
+        <observer name="althea_cms_alert_load_after_observer" instance="Althea\Cms\Observer\AlertLoadAfterObserver"/>
+    </event>
+    <event name="althea_cms_alert_collection_load_after">
+        <observer name="althea_cms_alert_collection_load_after_observer" instance="Althea\Cms\Observer\AlertCollectionLoadAfterObserver"/>
+    </event>
+    <event name="althea_cms_banner_load_after">
+        <observer name="althea_cms_banner_load_after_observer" instance="Althea\Cms\Observer\BannerLoadAfterObserver"/>
+    </event>
+    <event name="althea_cms_banner_collection_load_after">
+        <observer name="althea_cms_banner_collection_load_after_observer" instance="Althea\Cms\Observer\BannerCollectionLoadAfterObserver"/>
+    </event>
+</config>

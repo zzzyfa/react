@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <mobileversioning>
+            <general>
+                <android_version>1.3</android_version>
+                <android_message><![CDATA[IMPORTANT! Please update your althea app to the latest version available]]></android_message>
+                <android_priority>5</android_priority>
+                <ios_version>1.1</ios_version>
+                <ios_message><![CDATA[IMPORTANT! Please update your althea app to the latest version available]]></ios_message>
+                <ios_priority>5</ios_priority>
+            </general>
+        </mobileversioning>
+    </default>
+</config>

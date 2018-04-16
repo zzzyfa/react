@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Althea\Catalog\Api\ProductRepositoryInterface" type="Magento\Catalog\Model\ProductRepository"/>
+    <preference for="Althea\Catalog\Api\CategoryManagementInterface" type="Magento\Catalog\Model\CategoryManagement"/>
+    <preference for="Althea\Catalog\Api\Data\AttributeInterface" type="Althea\Catalog\Model\AttributeValue"/>
+    <preference for="Magento\Catalog\Model\Product" type="Althea\Catalog\Model\Product"/>
+    <preference for="Magento\Catalog\Model\Product\Image" type="Althea\Catalog\Model\Product\Image"/>
+    <preference for="Magento\Catalog\Model\Product\Type\Price" type="Althea\Catalog\Model\Product\Type\Price"/>
+    <preference for="Magento\Catalog\Model\Category\Attribute\Source\Sortby" type="Althea\Catalog\Model\Category\Attribute\Source\Sortby"/>
+    <preference for="Magento\Catalog\Model\Config" type="Althea\Catalog\Model\Config"/>
+    <preference for="Magento\Catalog\Model\Config\Source\ListSort" type="Althea\Catalog\Model\Config\Source\ListSort"/>
+    <preference for="Magento\Catalog\Model\ResourceModel\Product\Collection" type="Althea\Catalog\Model\ResourceModel\Product\Collection"/>
+    <preference for="Magento\Catalog\Model\ProductRepository" type="Althea\Catalog\Model\ProductRepository"/>
+    <type name="Magento\Catalog\Model\Category\Tree">
+        <plugin name="Althea_Catalog::categoryTreePlugin" type="Althea\Catalog\Plugin\Category\Tree" sortOrder="1"/>
+    </type>
+    <type name="Magento\WebapiSecurity\Model\Plugin\AnonymousResourceSecurity">
+        <arguments>
+            <argument name="resources" xsi:type="array">
+                <item name="/V1/althea/products::GET" xsi:type="string"/>
+                <item name="/V1/althea/categories::GET" xsi:type="string"/>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Catalog\Model\ProductRepository">
+        <plugin name="Althea_Catalog::ProductRepositoryPlugin" type="Althea\Catalog\Plugin\Model\ProductRepository" sortOrder="1"/>
+    </type>
+    <type name="Magento\Catalog\Model\Category\Attribute\OptionManagement">
+        <plugin name="Althea_Catalog::optionManagementPlugin" type="Althea\Catalog\Plugin\Model\Category\Attribute\OptionManagementPlugin" sortOrder="1"/>
+    </type>
+    <virtualType name="Magento\Catalog\Pricing\Price\Pool" type="Magento\Framework\Pricing\Price\Pool">
+        <arguments>
+            <argument name="prices" xsi:type="array">
+                <item name="base_price" xsi:type="string">Althea\Catalog\Pricing\Price\BasePrice</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="SyncBrandProductsCommand" xsi:type="object">Althea\Catalog\Console\Command\SyncBrandProductsCommand</item>
+                <item name="ProductImagesResizeCommand" xsi:type="object">Althea\Catalog\Console\Command\ProductImagesResizeCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

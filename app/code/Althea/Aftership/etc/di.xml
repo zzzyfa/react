@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Mrmonsters\Aftership\Cron\UploadTracking" type="Althea\Aftership\Cron\UploadTracking"/>
+    <preference for="Mrmonsters\Aftership\Helper\Config" type="Althea\Aftership\Helper\Config"/>
+    <preference for="Mrmonsters\Aftership\Helper\Data" type="Althea\Aftership\Helper\Data"/>
+    <preference for="Mrmonsters\Aftership\Model\Track" type="Althea\Aftership\Model\Track"/>
+    <preference for="Althea\Aftership\Api\TrackRepositoryInterface" type="Althea\Aftership\Model\TrackRepository"/>
+    <preference for="Althea\Aftership\Api\Data\TrackDataInterface" type="Althea\Aftership\Model\TrackData"/>
+    <preference for="Althea\Aftership\Api\Data\CheckpointDataInterface" type="Althea\Aftership\Model\CheckpointData"/>
+</config>

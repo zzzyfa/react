@@ -1,0 +1,65 @@
+
+Warning: PHP Startup: Unable to load dynamic library '/usr/local/Cellar/php56/5.6.30_6/lib/php/extensions/no-debug-non-zts-20131226/php_intl.dll' - dlopen(/usr/local/Cellar/php56/5.6.30_6/lib/php/extensions/no-debug-non-zts-20131226/php_intl.dll, 9): image not found in Unknown on line 0
+[32mMagento CLI[39m version [33m2.1.5[39m
+
+[33mUsage:[39m
+ command [options] [arguments]
+
+[33mOptions:[39m
+ [32m--help[39m (-h)           Display this help message
+ [32m--quiet[39m (-q)          Do not output any message
+ [32m--verbose[39m (-v|vv|vvv) Increase the verbosity of messages: 1 for normal output, 2 for more verbose output and 3 for debug
+ [32m--version[39m (-V)        Display this application version
+ [32m--ansi[39m                Force ANSI output
+ [32m--no-ansi[39m             Disable ANSI output
+ [32m--no-interaction[39m (-n) Do not ask any interactive question
+
+[33mAvailable commands:[39m
+ [32mhelp                                     [39m Displays help for a command
+ [32mlist                                     [39m Lists commands
+[33madmin[39m
+ [32madmin:user:create                        [39m Creates an administrator
+[33mi18n[39m
+ [32mi18n:collect-phrases                     [39m Discovers phrases in the codebase
+ [32mi18n:pack                                [39m Saves language package
+[33minfo[39m
+ [32minfo:adminuri                            [39m Displays the Magento Admin URI
+ [32minfo:backups:list                        [39m Prints list of available backup files
+ [32minfo:currency:list                       [39m Displays the list of available currencies
+ [32minfo:dependencies:show-framework         [39m Shows number of dependencies on Magento framework
+ [32minfo:dependencies:show-modules           [39m Shows number of dependencies between modules
+ [32minfo:dependencies:show-modules-circular  [39m Shows number of circular dependencies between modules
+ [32minfo:language:list                       [39m Displays the list of available language locales
+ [32minfo:timezone:list                       [39m Displays the list of available timezones
+[33mmaintenance[39m
+ [32mmaintenance:allow-ips                    [39m Sets maintenance mode exempt IPs
+ [32mmaintenance:disable                      [39m Disables maintenance mode
+ [32mmaintenance:enable                       [39m Enables maintenance mode
+ [32mmaintenance:status                       [39m Displays maintenance mode status
+[33mmigrate[39m
+ [32mmigrate:data                             [39m Main migration of data
+ [32mmigrate:delta                            [39m Migrate the data is added into Magento after the main migration
+ [32mmigrate:settings                         [39m Migrate system configuration
+[33mmodule[39m
+ [32mmodule:disable                           [39m Disables specified modules
+ [32mmodule:enable                            [39m Enables specified modules
+ [32mmodule:status                            [39m Displays status of modules
+ [32mmodule:uninstall                         [39m Uninstalls modules installed by composer
+[33msampledata[39m
+ [32msampledata:deploy                        [39m Deploy sample data modules
+ [32msampledata:remove                        [39m Remove all sample data packages from composer.json
+[33msetup[39m
+ [32msetup:backup                             [39m Takes backup of Magento Application code base, media and database
+ [32msetup:config:set                         [39m Creates or modifies the deployment configuration
+ [32msetup:cron:run                           [39m Runs cron job scheduled for setup application
+ [32msetup:db-data:upgrade                    [39m Installs and upgrades data in the DB
+ [32msetup:db-schema:upgrade                  [39m Installs and upgrades the DB schema
+ [32msetup:db:status                          [39m Checks if DB schema or data requires upgrade
+ [32msetup:di:compile                         [39m Generates DI configuration and all missing classes that can be auto-generated
+ [32msetup:install                            [39m Installs the Magento application
+ [32msetup:performance:generate-fixtures      [39m Generates fixtures
+ [32msetup:rollback                           [39m Rolls back Magento Application codebase, media and database
+ [32msetup:static-content:deploy              [39m Deploys static view files
+ [32msetup:store-config:set                   [39m Installs the store configuration
+ [32msetup:uninstall                          [39m Uninstalls the Magento application
+ [32msetup:upgrade                            [39m Upgrades the Magento application, DB data, and schema

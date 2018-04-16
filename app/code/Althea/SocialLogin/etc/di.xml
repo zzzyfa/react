@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="TemplateMonster\SocialLogin\Model\OAuthToken" type="Althea\SocialLogin\Model\OAuthToken"/>
+    <preference for="TemplateMonster\SocialLogin\Model\ResourceModel\OAuthToken" type="Althea\SocialLogin\Model\ResourceModel\OAuthToken"/>
+    <preference for="Althea\SocialLogin\Api\CustomerTokenServiceInterface" type="Althea\SocialLogin\Model\CustomerTokenService" />
+    <preference for="TemplateMonster\SocialLogin\Controller\Login\Connect" type="Althea\SocialLogin\Controller\Login\Connect" />
+</config>

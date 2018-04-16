@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <socialreferrals>
+            <general>
+                <enable_logging>1</enable_logging>
+            </general>
+        </socialreferrals>
+    </default>
+</config>

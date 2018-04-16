@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Adyen\Payment\Helper\Data" type="Althea\AdyenPayment\Helper\Data"/>
+    <preference for="Adyen\Payment\Model\Resource\Billing\Agreement\Collection" type="Althea\AdyenPayment\Model\Resource\Billing\Agreement\Collection"/>
+</config>

@@ -1,0 +1,185 @@
+RMA,RMA
+"No RMA Found","No RMA Found"
+ID,ID
+"Order #","Order #"
+Date,Date
+Status,Status
+Value,Value
+"Add Rule","Add Rule"
+"Save and Continue Edit","Save and Continue Edit"
+"RMA Request %1 for order #%2","RMA Request %1 for order #%2"
+"Add new Request","Add new Request"
+"RMA Items","RMA Items"
+Notes,Notes
+Request,Request
+"General Information","General Information"
+Email,Email
+Customer,Customer
+Guest,Guest
+Code,Code
+"Is Shipped","Is Shipped"
+Printing,Printing
+"View Shipping Label","View Shipping Label"
+Yes,Yes
+No,No
+"Edit Status `%1`","Edit Status `%1`"
+"Add new Status","Add new Status"
+General,General
+Label,Label
+Active,Active
+"Allow Print Labels","Allow Print Labels"
+"Email Template","Email Template"
+Priority,Priority
+Labels,Labels
+"Store View Specific Labels","Store View Specific Labels"
+Templates,Templates
+"Store View Specific Templates","Store View Specific Templates"
+"Export RMA","Export RMA"
+"Order #%s - %s - %s","Order #%s - %s - %s"
+"Can't create RMA for this order","Can't create RMA for this order"
+"File not found","File not found"
+"This request no longer exists.","This request no longer exists."
+"Edit Request","Edit Request"
+"New Request","New Request"
+Requests,Requests
+"Edit RMA Request","Edit RMA Request"
+"New RMA Request","New RMA Request"
+Sales,Sales
+"RMA Requests","RMA Requests"
+"Comment saved","Comment saved"
+"Notification has been sent","Notification has been sent"
+"Request has been successfully saved","Request has been successfully saved"
+"You deleted the status.","You deleted the status."
+"We can't find a status to delete.","We can't find a status to delete."
+"This status no longer exists.","This status no longer exists."
+"Edit Status","Edit Status"
+"New Status","New Status"
+Statuses,Statuses
+"RMA Statuses","RMA Statuses"
+"A total of %1 record(s) have been deleted.","A total of %1 record(s) have been deleted."
+"A total of %1 record(s) have been deactivated.","A total of %1 record(s) have been deactivated."
+"A total of %1 record(s) have been activated.","A total of %1 record(s) have been activated."
+"You saved the status.","You saved the status."
+"My Return Requests","My Return Requests"
+"RMA Login","RMA Login"
+"Comment placed","Comment placed"
+"Wrong key","Wrong key"
+"Shipping confirmed","Shipping confirmed"
+"Return request successfully deleted","Return request successfully deleted"
+"Edit RMA","Edit RMA"
+"New Return for Order #%1","New Return for Order #%1"
+"Access denied.","Access denied."
+"RMA has been successfully created","RMA has been successfully created"
+"Can't create RMA for this order: %1","Can't create RMA for this order: %1"
+"My RMA","My RMA"
+"Return request for order #%1, status: %2","Return request for order #%1, status: %2"
+Home,Home
+"Go to Home Page","Go to Home Page"
+"Go to My RMA","Go to My RMA"
+"RMA for order #%1","RMA for order #%1"
+"Order is not completed","Order is not completed"
+"Minimal number of days is not passed (%1)","Minimal number of days is not passed (%1)"
+"Maximal number of days is passed (%1)","Maximal number of days is passed (%1)"
+"Multiple requests are not allowed","Multiple requests are not allowed"
+"There are no shipped products in this order","There are no shipped products in this order"
+"No suitable items found in this order","No suitable items found in this order"
+"There are no products allowed for RMA in this order","There are no products allowed for RMA in this order"
+"Attachment size exceeds %1 Mb","Attachment size exceeds %1 Mb"
+"Unable upload file","Unable upload file"
+"Status has been changed to %1","Status has been changed to %1"
+"Order expired","Order expired"
+"Please, note, item(s) existing in your order was deleted from catalog","Please, note, item(s) existing in your order was deleted from catalog"
+Return,Return
+"Create RMA","Create RMA"
+Edit,Edit
+"Comments History","Comments History"
+Comment,Comment
+"Notify Customer by Email","Notify Customer by Email"
+Admin,Admin
+Product,Product
+SKU,SKU
+Reason,Reason
+"Item Condition","Item Condition"
+"Reason to Return","Reason to Return"
+Qty,Qty
+"Product Name","Product Name"
+Condition,Condition
+Resolution,Resolution
+"Recent orders. You can file return for an older order at 'My Orders' page.","Recent orders. You can file return for an older order at 'My Orders' page."
+"No orders available for RMA creation.","No orders available for RMA creation."
+View,View
+Delete,Delete
+"You have placed no return requests.","You have placed no return requests."
+"Print Label","Print Label"
+"Confirm Shipping","Confirm Shipping"
+"Request Information","Request Information"
+"Request ID","Request ID"
+"Order ID","Order ID"
+"Email Address","Email Address"
+"Shipping Address","Shipping Address"
+Items,Items
+"Leave Comment","Leave Comment"
+"Submit Comment","Submit Comment"
+"Customer Service","Customer Service"
+"Customer Name","Customer Name"
+"Order Shipping Address","Order Shipping Address"
+Item,Item
+Sub-items,Sub-items
+"Remaining Qty","Remaining Qty"
+"Quantity To Return","Quantity To Return"
+"Remaining quantity","Remaining quantity"
+"Add Item To Return","Add Item To Return"
+Remove,Remove
+File,File
+Back,Back
+Submit,Submit
+"Please select one of the options.","Please select one of the options."
+"RMA Return Info","RMA Return Info"
+"Customer Address","Customer Address"
+"Return Department Address","Return Department Address"
+Print,Print
+Close,Close
+"Enable per item RMA","Enable per item RMA"
+"Allow Guest RMA","Allow Guest RMA"
+"Allow to create multiple requests for the same order","Allow to create multiple requests for the same order"
+"Minimal time period allowed for RMA after order completion (days)","Minimal time period allowed for RMA after order completion (days)"
+"Maximal time period allowed for RMA after order completion (days)","Maximal time period allowed for RMA after order completion (days)"
+"Max Attachment Size (Mb)","Max Attachment Size (Mb)"
+"URL address for RMA requests for customers","URL address for RMA requests for customers"
+"This text replace rma in next url: {donmain}/rma/request/view.","This text replace rma in next url: {donmain}/rma/request/view."
+Shipping,Shipping
+"Use default shipping address","Use default shipping address"
+"Shipping Confirmation Text","Shipping Confirmation Text"
+Properties,Properties
+Reasons,Reasons
+Conditions,Conditions
+Resolutions,Resolutions
+"RMA Department Name","RMA Department Name"
+"RMA Department Email","RMA Department Email"
+"Notify Admin by Email","Notify Admin by Email"
+"Email Templates","Email Templates"
+"Admin Comment","Admin Comment"
+"Notification sent to customer when admin places comment","Notification sent to customer when admin places comment"
+"Customer Comment","Customer Comment"
+"Notification sent to admin when customer places comment","Notification sent to admin when customer places comment"
+"New RMA Created","New RMA Created"
+"Notification sent to admin when new RMA is placed","Notification sent to admin when new RMA is placed"
+"Extra Fields","Extra Fields"
+"Block Title","Block Title"
+"Field #1","Field #1"
+"Field #2","Field #2"
+"Field #3","Field #3"
+"Field #4","Field #4"
+"Field #5","Field #5"
+"Request Configuration","Request Configuration"
+"Status Configuration","Status Configuration"
+"Store View","Store View"
+Id,Id
+"Order Number","Order Number"
+Created,Created
+Updated,Updated
+"Customer Email","Customer Email"
+"Add Status","Add Status"
+Activate,Activate
+Deactivate,Deactivate
+Name,Name

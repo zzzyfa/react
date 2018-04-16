@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.2, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 60 60" style="enable-background:new 0 0 60 60;" xml:space="preserve">
+<style type="text/css">
+	.st0{display:none;fill:#262626;}
+	.st1{display:none;}
+	.st2{display:inline;}
+	.st3{clip-path:url(#SVGID_2_);}
+	.st4{fill:#2CAFA2;}
+	.st5{clip-path:url(#SVGID_4_);}
+	.st6{fill:#77E888;}
+	.st7{clip-path:url(#SVGID_6_);}
+	.st8{fill:#CC3A72;}
+	.st9{clip-path:url(#SVGID_8_);}
+	.st10{fill:#EA9053;}
+	.st11{fill:#4086CD;}
+	.st12{fill:#FFFFFF;}
+</style>
+<title>play_store</title>
+<path id="Play-Store" class="st0" d="M30,60c16.6,0,30-13.4,30-30S46.6,0,30,0S0,13.4,0,30S13.4,60,30,60z"/>
+<g id="PLAY" class="st1">
+	<g class="st2">
+		<g>
+			<defs>
+				<path id="SVGID_1_" d="M41.7,25.5L35,21.6l-12.9-7.4c-0.7-0.4-1.4-0.2-1.4,0.7v30.4c0,0.4,0.2,0.7,0.6,0.8c0.2,0,0.4,0,0.6-0.2
+					l13.2-7.6l6.7-3.9l6.4-3.7c0.8-0.4,0.7-1,0-1.4C47.4,28.8,41.7,25.5,41.7,25.5z"/>
+			</defs>
+			<clipPath id="SVGID_2_">
+				<use xlink:href="#SVGID_1_"  style="overflow:visible;"/>
+			</clipPath>
+			<g class="st3">
+				<polygon class="st4" points="20.6,13.5 20.6,29.9 20.6,46.3 37.2,29.9 				"/>
+			</g>
+		</g>
+	</g>
+	<g class="st2">
+		<g>
+			<defs>
+				<path id="SVGID_3_" d="M41.7,25.5L35,21.6l-12.9-7.4c-0.7-0.4-1.4-0.2-1.4,0.7v30.4c0,0.4,0.2,0.7,0.6,0.8c0.2,0,0.4,0,0.6-0.2
+					l13.2-7.6l6.7-3.9l6.4-3.7c0.8-0.4,0.7-1,0-1.4C47.4,28.8,41.7,25.5,41.7,25.5z"/>
+			</defs>
+			<clipPath id="SVGID_4_">
+				<use xlink:href="#SVGID_3_"  style="overflow:visible;"/>
+			</clipPath>
+			<g class="st5">
+				<polygon class="st6" points="41.7,25.5 35,21.6 20.6,13.3 20.6,13.5 37.2,29.9 				"/>
+			</g>
+		</g>
+	</g>
+	<g class="st2">
+		<g>
+			<defs>
+				<path id="SVGID_5_" d="M41.7,25.5L35,21.6l-12.9-7.4c-0.7-0.4-1.4-0.2-1.4,0.7v30.4c0,0.4,0.2,0.7,0.6,0.8c0.2,0,0.4,0,0.6-0.2
+					l13.2-7.6l6.7-3.9l6.4-3.7c0.8-0.4,0.7-1,0-1.4C47.4,28.8,41.7,25.5,41.7,25.5z"/>
+			</defs>
+			<clipPath id="SVGID_6_">
+				<use xlink:href="#SVGID_5_"  style="overflow:visible;"/>
+			</clipPath>
+			<g class="st7">
+				<polygon class="st8" points="20.6,46.3 20.6,46.4 35,38.2 41.7,34.3 37.2,29.9 				"/>
+			</g>
+		</g>
+	</g>
+	<g class="st2">
+		<g>
+			<defs>
+				<path id="SVGID_7_" d="M41.7,25.5L35,21.6l-12.9-7.4c-0.7-0.4-1.4-0.2-1.4,0.7v30.4c0,0.4,0.2,0.7,0.6,0.8c0.2,0,0.4,0,0.6-0.2
+					l13.2-7.6l6.7-3.9l6.4-3.7c0.8-0.4,0.7-1,0-1.4C47.4,28.8,41.7,25.5,41.7,25.5z"/>
+			</defs>
+			<clipPath id="SVGID_8_">
+				<use xlink:href="#SVGID_7_"  style="overflow:visible;"/>
+			</clipPath>
+			<g class="st9">
+				<polygon class="st10" points="41.7,25.5 37.2,29.9 41.7,34.3 49.3,29.9 				"/>
+			</g>
+		</g>
+	</g>
+</g>
+<g id="XMLID_1_">
+	<circle id="XMLID_3_" class="st11" cx="30" cy="30" r="30"/>
+	<path id="XMLID_7_" class="st12" d="M12.7,30v4.6h2.1l2.5-4.6H12.7z M23.1,30l-2.6,4.6h18.2L35.9,30H23.1z M41.6,30l2.6,4.6h4.3V30
+		H41.6z"/>
+	<path id="XMLID_11_" class="st12" d="M28.9,18.3c0,0,0.3-0.5-0.4-1l-1.5-0.9c-0.8-0.4-1.1,0.1-1.1,0.1l-0.2,0.5l2.9,1.7L28.9,18.3z
+		 M25.1,18.1L13.5,38.2l2.9,1.7L28,20L25.1,18.1z M12.9,39.2L12.7,43l3.3-2.2L12.9,39.2z"/>
+	<path id="XMLID_15_" class="st12" d="M28.8,14.4c0,0-0.8,0.4-0.1,1.5c3.7,6.3,10.9,18.9,10.9,18.9l2.9-1.7c0,0-10.4-17.9-10.9-18.9
+		c-0.7-1.1-1.4-0.7-1.4-0.7L28.8,14.4z M40.1,35.9l1.2,2l2.9-1.7l-1.2-2L40.1,35.9z M45.7,42c1.1-1.4,0.8-3.2,0.3-4
+		c-0.4-0.9-1.2-0.9-1.2-0.9l-3.2,1.9c0,0-0.1,1,0.4,1.5C43,41.2,44.5,40.6,45.7,42z"/>
+</g>
+</svg>

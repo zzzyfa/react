@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!-- /** * @author Amasty Team * @copyright Copyright (c) 2015 Amasty (http://www.amasty.com) * @package Amasty_HelloWorld */ -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <tab id="althea" translate="label" sortOrder="10">
+            <label>Althea</label>
+        </tab>
+
+        <section id="althea_autocancelorder" translate="label" type="text" sortOrder="10" showInDefault="1"
+                 showInWebsite="1" showInStore="1">
+            <label>Auto Cancel Order</label>
+            <tab>althea</tab>
+            <resource>Althea_AutoCancelOrder::althea_autocancelorder</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>General</label>
+                <field id="enable" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Auto Cancel Order</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="log" translate="label" type="select" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Log</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                    <depends>
+                        <field id="*/*/enable">1</field>
+                    </depends>
+                </field>
+                <field id="order_statuses" translate="label" type="multiselect" sortOrder="30" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Order Statuses</label>
+                    <source_model>Althea\AutoCancelOrder\Model\System\Config\Source\OrderStatus</source_model>
+                </field>
+                <field id="payment_statuses" translate="label" sortOrder="40" showInDefault="1" showInWebsite="1"
+                       showInStore="1">
+                    <label>Payment Statuses</label>
+                    <frontend_model>Althea\AutoCancelOrder\Block\Adminhtml\System\Config\Form\Leadtime</frontend_model>
+                    <backend_model>Althea\AutoCancelOrder\Model\System\Config\Backend\Serialized\Leadtime</backend_model>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

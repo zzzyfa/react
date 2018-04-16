@@ -1,0 +1,31 @@
+<style>
+    body[data-mage-init]{
+        overflow:hidden;
+    }
+
+    #page-preloader {
+        position: fixed;
+        left: 0;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 999999;
+        opacity: 0;
+        transition: .4s all ease-out;
+        visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    body[data-mage-init] #page-preloader{
+        opacity: 1;
+        height: auto;
+        visibility: visible;
+    }
+</style>
+
+<div id="page-preloader">
+    <img src="<?php echo $this->getViewFileUrl('images/althea-loading-basic-v2.gif'); ?>" />
+<!--    <div id="pre-althea-loading" data-mage-init='{"altheaLogo": {}}'></div>-->
+</div>

@@ -1,0 +1,33 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+?>
+<?php /** @var \Amasty\Rma\Block\Items $block */ ?>
+<table class="returns-items-table">
+    <thead>
+    <tr>
+        <th class="name"><?= __('Product Name') ?></th>
+        <th class="sku"><?= __('SKU') ?></th>
+        <th class="reason"><?= __('Reason') ?></th>
+        <th class="condition"><?= __('Condition') ?></th>
+        <th class="resolution"><?= __('Resolution') ?></th>
+        <th class="qty"><?= __('Qty') ?></th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php /** @var \Amasty\Rma\Model\Item $item */
+    foreach ($block->getItems() as $key => $item): ?>
+        <tr>
+            <td class="name"><?= $block->escapeHtml($item->getData('name')) ?></td>
+            <td class="sku"><?= $block->escapeHtml($item->getData('sku')) ?></td>
+            <td class="reason"><?= $block->escapeHtml($item->getData('reason')) ?></td>
+            <td class="condition"><?= $block->escapeHtml($item->getData('condition')) ?></td>
+            <td class="resolution"><?= $block->escapeHtml($item->getData('resolution')) ?></td>
+            <td class="qty"><?= $block->escapeHtml($item->getData('qty')); ?></td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>

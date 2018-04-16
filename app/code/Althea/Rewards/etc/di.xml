@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Mirasvit\Rewards\Model\Config" type="Althea\Rewards\Model\Config"/>
+    <type name="Mirasvit\Rewards\Block\Buttons">
+        <plugin name="Althea_Rewards::buttonsPlugin" type="Althea\Rewards\Plugin\Block\ButtonsPlugin" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\Payment">
+        <plugin name="Althea_Rewards::paymentPlugin" type="Althea\Rewards\Plugin\Model\Order\PaymentPlugin" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\Invoice">
+        <plugin name="Althea_Rewards::invoicePlugin" type="Althea\Rewards\Plugin\Model\Order\InvoicePlugin" sortOrder="1"/>
+    </type>
+    <type name="Magento\Sales\Model\Order\Creditmemo">
+        <plugin name="Althea_Rewards::creditMemoPlugin" type="Althea\Rewards\Plugin\Model\Order\CreditMemoPlugin" sortOrder="1"/>
+    </type>
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="onPointsExpiredCommand" xsi:type="object">Althea\Rewards\Console\Command\OnPointsExpiredCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

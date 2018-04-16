@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Checkout\Controller\Cart\CouponPost" type="Althea\Checkout\Controller\Rewrite\Cart\CouponPost"/>
+    <preference for="Magento\Checkout\Model\PaymentInformationManagement" type="Althea\Checkout\Model\PaymentInformationManagement"/>
+    <type name="Althea\Checkout\Logger\Handler\Custom">
+        <arguments>
+            <argument name="filesystem" xsi:type="object">Magento\Framework\Filesystem\Driver\File</argument>
+        </arguments>
+    </type>
+    <type name="Althea\Checkout\Logger\CheckoutLogger">
+        <arguments>
+            <argument name="name" xsi:type="string">checkoutLogger</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="debug" xsi:type="object">Althea\Checkout\Logger\Handler\Custom</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="Althea\Checkout\Model\Session\Storage" type="Magento\Framework\Session\Storage">
+        <arguments>
+            <argument name="namespace" xsi:type="string">althea_checkout</argument>
+        </arguments>
+    </virtualType>
+    <type name="Althea\Checkout\Model\Session">
+        <arguments>
+            <argument name="storage" xsi:type="object">Althea\Checkout\Model\Session\Storage</argument>
+        </arguments>
+    </type>
+    <type name="MOLPay\Seamless\Controller\Index\Index">
+        <plugin name="Althea_Checkout::indexPlugin" type="Althea\Checkout\Plugin\Controller\Index\IndexPlugin" sortOrder="1"/>
+    </type>
+</config>

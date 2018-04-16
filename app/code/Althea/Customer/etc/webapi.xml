@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
+
+    <route url="/V1/customer/attributes/list" method="GET">
+        <service class="Althea\Customer\Api\CustomerAttributesInterface" method="getAttributes"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+    <route url="/V1/customer/attribute/:attribute_code/:value" method="PUT">
+        <service class="Althea\Customer\Api\CustomerAttributesInterface" method="saveAttributeValue"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/customer/attribute/:attribute_code/:value" method="POST">
+        <service class="Althea\Customer\Api\CustomerAttributesInterface" method="saveAttributeValue"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/libphonenumber/validate/:phoneNumber/:countryCode" method="GET">
+        <service class="Althea\Customer\Api\LibPhoneNumberInterface" method="validatePhone"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+
+</routes>

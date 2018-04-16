@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Checkout\Api\Data\PaymentDetailsInterface">
+        <attribute code="payment_method_options" type="Althea\Quote\Api\Data\PaymentMethodOptionsInterface[]"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\CartInterface">
+        <attribute code="has_error" type="boolean"/>
+        <attribute code="error_texts" type="string[]"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\CartItemInterface">
+        <attribute code="has_error" type="boolean"/>
+        <attribute code="error_texts" type="string[]"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Quote\Api\Data\TotalsItemInterface">
+        <attribute code="product_id" type="int"/>
+    </extension_attributes>
+</config>

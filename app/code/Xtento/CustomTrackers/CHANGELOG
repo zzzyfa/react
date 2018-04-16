@@ -1,0 +1,47 @@
+Xtento_CustomTrackers
+
+-------------
+  CHANGELOG
+-------------
+
+===== 2.0.0 =====
+ * Initial stable M2 release
+
+===== 2.0.1 =====
+ * Compatibility with Magento 2.0.2
+ * Several code optimizations, code cleanup
+ * Updated Xtento_XtCore
+
+===== 2.0.2 =====
+ * Refactored tracker1 through tracker15 using virtual type construct of Magento
+
+===== 2.0.3 =====
+ * Fixed duplicate/redefinition of parameter in AbstractCarrier class
+ * Moved plugins to separate Plugin folder
+ * Several code optimizations, code cleanup
+
+===== 2.0.4 =====
+ + The Custom Carrier Trackers extension has passed the Magento code review and is now a certified extension.
+ * Updated Xtento_XtCore to 2.0.3
+
+===== 2.0.x =====
+ [Prepared Feature, added in 2.0.4]: Magento email templates now use our track.phtml template without overriding it in the theme folder. This is done using a plugin for the email filter class. However, this is not enabled yet, as it depends on a Magento core fix. Will update.
+
+===== 2.0.5 =====
+ * Compatibility with Magento 2.1.0 established
+
+===== 2.0.6 =====
+ * Fixed bug that could lead to certain variables not being replaced in tracking URL
+ * Code optimizations in order to achieve Magento "Certified Extension" status
+
+===== 2.0.7 =====
+ + Added "TRACKING_URLS.txt", a list of common/known tracking URLs
+
+===== 2.0.8 =====
+ * Magento Marketplace Update, implemented "prepared feature", added in 2.0.4 (see above), removes necessity of overriding themes track.phtml template.
+
+===== 2.0.9 =====
+ * Fixed composer.json / PHP version requirement now according to Magento 2 requirements
+
+===== 2.1.0 =====
+ * Updated Xtento_XtCore to version 2.0.7 ("Added warning in module configuration at System > Configuration if module output is disabled via "Disable Module Output" at System > Configuration > Advanced > Advanced")

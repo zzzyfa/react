@@ -1,0 +1,30 @@
+/*
+*   Social Login
+*/
+.block-social-login a {
+  display: inline-block;
+  text-decoration: none;
+  overflow: hidden;
+  position: relative;
+
+}
+.block-social-login a i.fa {
+  width: 43px;
+  text-align: left;
+  font-size: 28px;
+  position: absolute;
+  left: 15px;
+  color:#ffffff;
+}
+.block-social-login a.facebook {
+  background: #3b5999;
+}
+.block-social-login a.twitter {
+  background: #00b6f1;
+}
+.block-social-login a.instagram {
+  background: #7c4e3a;
+}
+.block-social-login a.google-plus {
+  background: #e04a39;
+}

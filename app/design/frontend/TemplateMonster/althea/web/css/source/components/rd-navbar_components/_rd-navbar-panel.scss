@@ -1,0 +1,14 @@
+/*
+* @subsection   RD Navbar Toggles
+*
+* @description  Describes style declarations for RD Navbar panel
+*/
+
+$rd-navbar-panel-height: 70px;
+
+.rd-navbar-static{
+  .rd-navbar-panel{
+    @include clearfix;
+    padding: 0;
+  }
+}

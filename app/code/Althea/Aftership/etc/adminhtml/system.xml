@@ -1,0 +1,219 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="customtrackers">
+            <group id="tracker1">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker2">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker3">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker4">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker5">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker6">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker7">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker8">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker9">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker10">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker11">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker12">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker13">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker14">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+            <group id="tracker15">
+                <field id="courier_slug"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Courier Slug (Aftership)</label>
+                    <comment><![CDATA[<a href="https://www.aftership.com/courier" target="_blank">https://www.aftership.com/courier</a>]]></comment>
+                </field>
+            </group>
+        </section>
+        <section id="aftership_options">
+            <group id="messages">
+                <field id="tracking_domain"
+                       translate="label,comment"
+                       type="text"
+                       sortOrder="60"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Tracking Domain</label>
+                    <comment>Please include trailing slash in url</comment>
+                </field>
+                <field id="webhook_key"
+                       translate="label"
+                       type="text"
+                       sortOrder="70"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Webhook Security Key</label>
+                </field>
+                <field id="webhook_salt"
+                       translate="label"
+                       type="text"
+                       sortOrder="80"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Webhook Security Salt</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

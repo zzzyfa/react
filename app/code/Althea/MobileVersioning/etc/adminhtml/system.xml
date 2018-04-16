@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../Magento/Config/etc/system_file.xsd">
+    <system>
+        <section id="mobileversioning"
+                 translate="label"
+                 type="text"
+                 sortOrder="60"
+                 showInDefault="1"
+                 showInWebsite="1"
+                 showInStore="1">
+            <label>Mobile Versioning</label>
+            <tab>althea</tab>
+            <resource>Althea_MobileVersioning::mobileversioning</resource>
+            <group id="general"
+                   translate="label"
+                   type="text"
+                   sortOrder="10"
+                   showInDefault="1"
+                   showInWebsite="1"
+                   showInStore="1">
+                <label>Mobile Versioning</label>
+                <field id="heading_general"
+                       translate="label"
+                       type="text"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>General Configurations</label>
+                    <frontend_model>Althea\MobileVersioning\Block\Adminhtml\System\Config\Form\Field\Separator</frontend_model>
+                </field>
+                <field id="enabledadm"
+                       translate="label"
+                       type="select"
+                       sortOrder="10"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Enable Mobile Versioning</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="heading_android"
+                       translate="label"
+                       type="text"
+                       sortOrder="30"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Android</label>
+                    <frontend_model>Althea\MobileVersioning\Block\Adminhtml\System\Config\Form\Field\Separator</frontend_model>
+                </field>
+                <field id="android_version"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="40"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Version Number</label>
+                </field>
+                <field id="android_priority"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="50"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Update Priority</label>
+                    <source_model>Althea\MobileVersioning\Model\Config\Source\Priority</source_model>
+                    <comment>Higher priority has higher value (Lowest = 1, Highest = 5)</comment>
+                </field>
+                <field id="android_message"
+                       translate="label comment"
+                       type="textarea"
+                       sortOrder="60"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Update Message</label>
+                </field>
+                <field id="heading_ios"
+                       translate="label"
+                       type="text"
+                       sortOrder="70"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>iOS</label>
+                    <frontend_model>Althea\MobileVersioning\Block\Adminhtml\System\Config\Form\Field\Separator</frontend_model>
+                </field>
+                <field id="ios_version"
+                       translate="label comment"
+                       type="text"
+                       sortOrder="80"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Version Number</label>
+                </field>
+                <field id="ios_priority"
+                       translate="label comment"
+                       type="select"
+                       sortOrder="90"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Update Priority</label>
+                    <source_model>Althea\MobileVersioning\Model\Config\Source\Priority</source_model>
+                    <comment>Higher priority has higher value (Lowest = 1, Highest = 5)</comment>
+                </field>
+                <field id="ios_message"
+                       translate="label comment"
+                       type="textarea"
+                       sortOrder="100"
+                       showInDefault="1"
+                       showInWebsite="1"
+                       showInStore="1">
+                    <label>Update Message</label>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

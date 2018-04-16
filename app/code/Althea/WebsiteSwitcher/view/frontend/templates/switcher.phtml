@@ -1,0 +1,33 @@
+<?php
+/**
+ * Website switcher template
+ *
+ * @see \Althea\WebsiteSwicther\Block\Switcher
+ */
+?>
+
+<?php if (count($block->getWebsites()) > 1): ?>
+    <div id="switcher-website">
+        <button class="current-country">
+            <?php echo __('SHIPPING TO') ?>
+            <?php if($currentWebsite = $block->getCurrentWebsite()): ?>
+                <img class="flag"
+                     src="<?php echo $block->getViewFileUrl('Althea_WebsiteSwitcher::images/flags/' . $currentWebsite['flag_url']); ?>"/>
+            <?php elseif($globalWebsite = $block->getGlobalWebsite()) :?>
+                <img class="flag"
+                     src="<?php echo $block->getViewFileUrl('Althea_WebsiteSwitcher::images/flags/' . $globalWebsite['flag_url']); ?>"/>
+            <?php endif;?>
+        </button>
+        <ul class="country-list">
+            <?php foreach ($block->getWebsitesWithoutCurrentWebsite() as $website): ?>
+                <a class="country-list-item" href="<?php echo $website['url'] ?>">
+                    <img class="flag"
+                         src="<?php echo $block->getViewFileUrl('Althea_WebsiteSwitcher::images/flags/' . $website['flag_url']); ?>"/>
+                        <span>
+                            <?php echo $website['name'] ?>
+                        </span>
+                </a>
+            <?php endforeach; ?>
+        </ul>
+    </div>
+<?php endif; ?>

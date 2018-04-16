@@ -1,0 +1,34 @@
+/*
+ the custom sass for top-link
+*/
+.rd-navbar-static .rd-navbar-collapse {
+  padding-top: 0; }
+
+.rd-navbar-collapse {
+  padding-top: 0; }
+
+.page-header__panel {
+  background-color: #323030;
+  color: #ffffff;
+  height: 44px; }
+
+.panel-container-wrap {
+  border-bottom: none; }
+
+@media (min-width: 768px) {
+  .panel-container-wrap {
+    padding: 0; } }
+.rd-navbar-fixed .rd-navbar-collapse .switcher.website {
+  width: 50px;
+  margin: 0; }
+  .rd-navbar-fixed .rd-navbar-collapse .switcher.website .actions .action {
+    padding: 5px 0 0 11px; }
+    .rd-navbar-fixed .rd-navbar-collapse .switcher.website .actions .action:after {
+      margin-top: -10px;
+      display: block; }
+  .rd-navbar-fixed .rd-navbar-collapse .switcher.website .mage-dropdown-dialog {
+    left: auto;
+    right: 0;
+    top: 55px; }
+
+/*# sourceMappingURL=custom.css.map */

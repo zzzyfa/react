@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Shipping\Helper\Data">
+        <plugin name="Xtento_CustomTrackers::addDirectTrackLink" type="Xtento\CustomTrackers\Plugin\Helper\Shipping\DataPlugin"/>
+    </type>
+    <type name="Magento\Shipping\Model\Config">
+        <plugin name="Xtento_CustomTrackers::addCustomCarriers" type="Xtento\CustomTrackers\Plugin\Model\Shipping\ConfigPlugin"/>
+    </type>
+    <type name="Magento\Shipping\Model\Order\Track">
+        <plugin name="Xtento_CustomTrackers::addTrackEvent" type="Xtento\CustomTrackers\Plugin\Model\Shipping\Order\TrackPlugin"/>
+    </type>
+    <!-- The following plugin cannot be used yet, as the Filter class cannot be rewritten. See: https://github.com/magento/magento2/commit/2d4a99c46ae94db49a86deb5f6a3af4171fbbef4 -->
+    <!--<type name="Magento\Email\Model\Template\Filter">
+        <plugin name="Xtento_CustomTrackers::test" type="Xtento\CustomTrackers\Plugin\Model\Email\Template\FilterPlugin"/>
+    </type>-->
+    <!-- Custom trackers -->
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker1" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker1</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker2" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker2</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker3" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker3</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker4" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker4</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker5" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker5</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker6" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker6</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker7" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker7</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker8" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker8</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker9" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker9</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker10" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker10</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker11" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker11</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker12" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker12</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker13" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker13</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker14" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker14</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker15" type="Xtento\CustomTrackers\Model\Shipping\Carrier\Tracker">
+        <arguments>
+            <argument name="code" xsi:type="string">tracker15</argument>
+        </arguments>
+    </virtualType>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomTrackers (2.1.0)
+ * ID:            pla2jYgPEb1bu8ncBMlGtw6aKM5PQ018LXPJPkLn5XM=
+ * Packaged:      2017-06-01T10:42:53+00:00
+ * Last Modified: 2016-04-14T15:26:00+00:00
+ * File:          app/code/Xtento/CustomTrackers/etc/di.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

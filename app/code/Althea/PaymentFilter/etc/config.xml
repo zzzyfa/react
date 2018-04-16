@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <paymentfilter>
+            <general>
+                <enabled>1</enabled>
+                <show_disabled_methods>0</show_disabled_methods>
+            </general>
+        </paymentfilter>
+    </default>
+</config>

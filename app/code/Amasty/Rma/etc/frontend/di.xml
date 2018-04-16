@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\App\RouterList">
+        <arguments>
+            <argument name="routerList" xsi:type="array">
+                <item name="amasty_rma" xsi:type="array">
+                    <item name="class" xsi:type="string">Amasty\Rma\Controller\Router</item>
+                    <item name="disable" xsi:type="boolean">false</item>
+                    <item name="sortOrder" xsi:type="string">23</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <virtualType name="RedirectWithUrlBuilder" type="Magento\Store\App\Response\Redirect">
+        <arguments>
+            <argument name="urlBuilder" xsi:type="object">Amasty\Rma\Model\UrlBuilder</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="ActionContextWithUrlBuilder" type="Magento\Framework\App\Action\Context">
+        <arguments>
+            <argument name="redirect" xsi:type="object">RedirectWithUrlBuilder</argument>
+            <argument name="url" xsi:type="object">Amasty\Rma\Model\UrlBuilder</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="ElementContextWithUrlBuilder" type="Magento\Framework\View\Element\Template\Context">
+        <arguments>
+            <argument name="urlBuilder" xsi:type="object">Amasty\Rma\Model\UrlBuilder</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="HtmlLinkWithUrlBuilder" type="Magento\Framework\View\Element\Html\Link\Current">
+        <arguments>
+            <argument name="context" xsi:type="object">ElementContextWithUrlBuilder</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Amasty\Rma\Controller\Request\AddComment">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Request\CommentLookup">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Request\Confirm">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Request\Delete">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Request\Download">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Request\Edit">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Request\Export">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Request\NewAction">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Request\View">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Rma\Controller\Guest\History">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Guest\Login">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Guest\LoginPost">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Controller\Guest\Logout">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Rma\Controller\Customer\History">
+        <arguments>
+            <argument name="context" xsi:type="object">ActionContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+
+    <type name="Amasty\Rma\Block\Request\History">
+        <arguments>
+            <argument name="context" xsi:type="object">ElementContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Block\Request\View">
+        <arguments>
+            <argument name="context" xsi:type="object">ElementContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+    <type name="Amasty\Rma\Block\Guest\Login">
+        <arguments>
+            <argument name="context" xsi:type="object">ElementContextWithUrlBuilder</argument>
+        </arguments>
+    </type>
+</config>

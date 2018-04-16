@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <virtualType name="Magento\CatalogSearch\Model\ResourceModel\Fulltext\CollectionFactory" type="Magento\Catalog\Model\ResourceModel\Product\CollectionFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Althea\CatalogSearch\Model\ResourceModel\Fulltext\Collection</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Althea\CatalogSearch\Model\Layer\Filter\Item\AttributeFactory" type="Magento\Catalog\Model\Layer\Filter\ItemFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Althea\CatalogSearch\Model\Layer\Filter\Item\Attribute</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Althea\CatalogSearch\Model\Layer\Filter\Attribute">
+        <arguments>
+            <argument name="filterItemFactory" xsi:type="object">Althea\CatalogSearch\Model\Layer\Filter\Item\AttributeFactory</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="Althea\CatalogSearch\Model\Layer\Filter\DataProvider\PriceFactory" type="\Magento\Catalog\Model\Layer\Filter\DataProvider\PriceFactory">
+        <arguments>
+            <argument name="instanceName" xsi:type="string">Althea\CatalogSearch\Model\Layer\Filter\DataProvider\Price</argument>
+        </arguments>
+    </virtualType>
+
+    <type name="Althea\CatalogSearch\Model\Layer\Filter\DataProvider\Price">
+        <arguments>
+            <argument name="resource" xsi:type="object">Althea\CatalogSearch\Model\ResourceModel\Layer\Filter\Price</argument>
+        </arguments>
+    </type>
+
+    <type name="Althea\CatalogSearch\Model\Layer\Filter\Price">
+        <arguments>
+            <argument name="filterItemFactory" xsi:type="object">Althea\CatalogSearch\Model\Layer\Filter\Item\AttributeFactory</argument>
+            <argument name="dataProviderFactory" xsi:type="object">Althea\CatalogSearch\Model\Layer\Filter\DataProvider\PriceFactory</argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Catalog\Model\Layer\Filter\Dynamic\Auto">
+        <arguments>
+            <argument name="resource" xsi:type="object">Althea\CatalogSearch\Model\ResourceModel\Layer\Filter\Price</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="categoryFilterList" type="Althea\CatalogSearch\Model\Layer\FilterList">
+        <arguments>
+            <argument name="filterableAttributes" xsi:type="object">Althea\CatalogSearch\Model\Layer\Category\FilterableAttributeList</argument>
+            <argument name="filters" xsi:type="array">
+                <item name="attribute" xsi:type="string">Althea\CatalogSearch\Model\Layer\Filter\Attribute</item>
+                <item name="price" xsi:type="string">Althea\CatalogSearch\Model\Layer\Filter\Price</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="searchFilterList" type="Althea\CatalogSearch\Model\Layer\FilterList">
+        <arguments>
+            <argument name="filterableAttributes" xsi:type="object">Althea\CatalogSearch\Model\Layer\Search\FilterableAttributeList</argument>
+            <argument name="filters" xsi:type="array">
+                <item name="attribute" xsi:type="string">Althea\CatalogSearch\Model\Layer\Filter\Attribute</item>
+                <item name="price" xsi:type="string">Althea\CatalogSearch\Model\Layer\Filter\Price</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Magento\LayeredNavigation\Block\Navigation\Category" type="Althea\CatalogSearch\Block\Navigation">
+        <arguments>
+            <argument name="filterList" xsi:type="object">categoryFilterList</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Magento\LayeredNavigation\Block\Navigation\Search" type="Althea\CatalogSearch\Block\Navigation">
+        <arguments>
+            <argument name="filterList" xsi:type="object">searchFilterList</argument>
+        </arguments>
+    </virtualType>
+
+</config>

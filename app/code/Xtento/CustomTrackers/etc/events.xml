@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="view_block_abstract_to_html_before">
+        <observer name="xtento_customtrackers_view_block_abstract_to_html_before" instance="Xtento\CustomTrackers\Observer\ViewBlockAbstractToHtmlBeforeObserver"/>
+    </event>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomTrackers (2.1.0)
+ * ID:            pla2jYgPEb1bu8ncBMlGtw6aKM5PQ018LXPJPkLn5XM=
+ * Packaged:      2017-06-01T10:42:53+00:00
+ * Last Modified: 2016-11-15T13:56:25+00:00
+ * File:          app/code/Xtento/CustomTrackers/etc/events.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="althea_nexmo_verification_register_after">
+        <observer name="nexmo_verification_register_after"
+                  instance="Althea\Nexmo\Observer\VerificationRegisterAfterObserver"/>
+    </event>
+    <event name="althea_nexmo_verification_validate_success">
+        <observer name="nexmo_verification_validate_success"
+                  instance="Althea\Nexmo\Observer\VerificationValidateSuccessObserver"/>
+    </event>
+</config>

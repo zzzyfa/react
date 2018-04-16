@@ -1,0 +1,67 @@
+#switcher-website{
+    display: inline-block;
+    font-weight:300;
+    position: relative;
+}
+
+#switcher-website .current-country{
+    height:44px;
+    padding:10px 17px;
+    background-color:#323030;
+    position: relative;
+    cursor:pointer;
+}
+
+/*#switcher-website .current-country:after{*/
+    /*font-family: "Linearicons";*/
+    /*content: "\e93a";*/
+    /*font-size: 10px;*/
+    /*position: absolute;*/
+    /*right: 18px;*/
+/*}*/
+
+#switcher-website.selected .current-country,
+#switcher-website .current-country:hover{
+    background-color:#f64b7f;
+}
+
+/*#switcher-website span {*/
+    /*font-size:16px;*/
+/*}*/
+
+#switcher-website .current-country span{
+    color:#ffffff;
+}
+
+#switcher-website ul.country-list{
+    display: none;
+    position: absolute;
+    right:0;
+    z-index: 100;
+    background-color: #ffffff;
+    color: #323030;
+    width: 252px;
+    padding: 3px;
+    box-shadow: 0px 2px 15px #00000078;
+}
+
+#switcher-website.selected ul.country-list{
+    display: block;
+}
+
+#switcher-website ul.country-list a.country-list-item {
+    padding:7px;
+    cursor:pointer;
+    display: list-item;
+}
+
+#switcher-website ul.country-list a.country-list-item:hover{
+    background-color: #eeeeee;
+}
+
+#switcher-website .flag {
+    display: inline-block;
+    width:22px;
+    height:22px;
+    margin-left:10px;
+}

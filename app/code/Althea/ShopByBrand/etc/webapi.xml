@@ -1,0 +1,70 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/brands" method="GET">
+        <service class="TemplateMonster\ShopByBrand\Api\BrandRepositoryInterface" method="getList"/>
+        <resources>
+            <resource ref="anonymous"/>
+        </resources>
+    </route>
+    <route url="/V1/mine/brand/following" method="GET">
+        <service class="Althea\ShopByBrand\Api\FollowerRepositoryInterface" method="getFollowingBrands"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/brand/following/brands" method="GET">
+        <service class="Althea\ShopByBrand\Api\BrandFollowerRepositoryInterface" method="getByCurrentStoreId"/>
+        <resources>
+            <resource ref="TemplateMonster_ShopByBrand::brand_list"/>
+        </resources>
+    </route>
+    <route url="/V1/brand/following/me" method="GET">
+        <service class="Althea\ShopByBrand\Api\BrandFollowerRepositoryInterface" method="getMyList"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/brand/following/add/:brandId" method="POST">
+        <service class="Althea\ShopByBrand\Api\BrandFollowerRepositoryInterface" method="addFollowByToken"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/brand/following/remove/:brandId" method="DELETE">
+        <service class="Althea\ShopByBrand\Api\BrandFollowerRepositoryInterface" method="removeFollowByToken"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/brand/following/products/filter" method="GET">
+        <service class="Althea\ShopByBrand\Api\BrandFollowerRepositoryInterface" method="getFollowingProductListByFilter"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/brand/following/products/all" method="GET">
+        <service class="Althea\ShopByBrand\Api\BrandFollowerRepositoryInterface" method="getFollowingProductList"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+</routes>

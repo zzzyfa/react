@@ -1,0 +1,105 @@
+@import 'product/_list.scss';
+@import 'product/_toolbar.scss';
+@import 'product/_view.scss';
+@import 'product/compare/_list.scss';
+@import 'product/compare/_block.scss';
+@import 'product/list/_grid.scss';
+@import 'product/list/_list.scss';
+@import 'product/view/_fotorama.scss';
+@import 'product/view/block/_related.scss';
+@import 'product/view/block/_upsell.scss';
+@import 'product/view/block/_crosssell.scss';
+@import 'product/view/type/_downloadable.scss';
+
+//
+//  Icons
+//  ---------------------------------------------
+
+.towishlist,
+.tocompare {
+  position: relative;
+  span {
+    display: none;
+    
+  }
+}
+
+.product-social-links .mailto {
+  padding: 0 $indent-small/2;
+  @include font-icon('\e0be');
+}
+.action.tocompare,
+.action.towishlist {
+  font-weight: normal !important;
+}
+.towishlist {
+  &:before {
+    font-family: $linearicons-icon;
+    content: "\e68c";
+    text-indent: 1px;
+  }
+}
+
+.tocompare {
+  &:before {
+    font-family: $linearicons-icon;
+    content: "\e839";
+  }
+}
+
+.product-attributes {
+  background-color:#f6f6f6;
+  order:3;
+  margin:20px;
+  width:100%;
+
+  .row{
+    padding:45px 55px;
+  }
+
+  strong {
+    font-size:22px;
+    text-transform: uppercase;
+    font-weight: 300;
+    margin:0;
+    padding:0;
+  }
+
+  p{
+    margin:0;
+    padding:0;
+  }
+
+  .product-attribute-value{
+    font-size:14px;
+    line-height:18px;
+    padding:40px 0px;
+  }
+
+  .popup-action {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    font-weight: bold;
+    margin-top: 41px;
+    cursor: pointer;
+
+    &:hover{
+      color:$primary;
+    }
+  }
+}
+
+.rd-navbar-fixed-linked {
+  .product-attributes{
+
+    strong {
+      font-size:18px;
+    }
+
+    p{
+      font-size:12px;
+      line-height:18px;
+    }
+  }
+}

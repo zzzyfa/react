@@ -1,0 +1,103 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+
+// @codingStandardsIgnoreFile
+
+/** @var \Magento\Customer\Block\Form\Login $block */
+?>
+<?php
+/**
+ * Customer login form template
+ *
+ * @see \Magento\Customer\Block\Form\Login
+ * @var $block \Magento\Customer\Block\Form\Login
+ */
+?>
+
+<?php if ($block->isLoggedIn() === false): ?>
+    <div class="block block-customer-login">
+        <div class="block-title">
+            <span>
+                <?php /* @escapeNotVerified */
+                echo __('CUSTOMER LOGIN') ?>
+            </span>
+        </div>
+        <div class="block-content" aria-labelledby="block-customer-login-heading">
+            <form class="form form-login"
+                  action="<?php /* @escapeNotVerified */
+                  echo $block->getPostActionUrl() ?>"
+                  method="post"
+                  id="login-form"
+                  data-mage-init='{"validation":{}}'>
+                <?php echo $block->getBlockHtml('formkey'); ?>
+                <fieldset class="fieldset login" data-hasrequired="<?php /* @escapeNotVerified */
+                echo __('* Required Fields') ?>">
+                    <div class="field email required">
+                        <div class="control">
+                            <input name="login[username]"
+                                   placeholder="<?php echo __('EMAIL') ?>"
+                                   value="<?php echo $block->escapeHtml($block->getUsername()) ?>" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                   id="email" type="email" class="input-text" title="<?php /* @escapeNotVerified */
+                            echo __('EMAIL') ?>" data-validate="{required:true, 'validate-email':true}">
+                        </div>
+                    </div>
+                    <div class="field password required">
+                        <div class="control">
+                            <input name="login[password]"
+                                   placeholder="<?php echo __('PASSWORD') ?>"
+                                   type="password" <?php if ($block->isAutocompleteDisabled()) : ?> autocomplete="off"<?php endif; ?>
+                                   class="input-text" id="pass" title="<?php /* @escapeNotVerified */
+                            echo __('PASSWORD') ?>" data-validate="{required:true}">
+                        </div>
+                    </div>
+                    <?php echo $block->getChildHtml('form_additional_info'); ?>
+                    <div class="actions-toolbar">
+                        <div class="primary">
+                            <button type="submit" class="action login primary" name="send" id="send2">
+                                    <span><?php /* @escapeNotVerified */
+                                        echo __('LOGIN') ?></span></button>
+                        </div>
+                        <div class="secondary full link"><a class="action remind" href="<?php /* @escapeNotVerified */
+                            echo $block->getCustomerForgotPasswordUrl() ?>"><span><?php /* @escapeNotVerified */
+                                    echo __('RESET PASSWORD') ?></span></a></div>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <div class="line">
+            <span>
+                <?php /* @escapeNotVerified */
+                echo __('OR') ?>
+            </span>
+        </div>
+    </div>
+    <div class="block-content block-content-account">
+        <div class="actions-toolbar">
+            <div class="full">
+                <a class="action new-account" href="<?php /* @escapeNotVerified */
+                echo $block->getCustomerRegisterUrl() ?>">
+                <span>
+                    <?php echo __('CREATE NEW ACCOUNT') ?>
+                </span>
+                </a>
+            </div>
+        </div>
+    </div>
+<?php else: ?>
+    <div class="account-info">
+        <ul>
+            <li>
+                <a href="<?php echo $block->getCustomerAccountUrl() ?>"><span><?php echo __('EDIT PROFILE') ?></span></a>
+            </li>
+            <li>
+                <a href="<?php echo $block->getWishlistUrl() ?>"><span><?php echo __('MY WISHLIST') ?></span></a>
+            </li>
+            <li>
+                <a href="<?php echo $block->getHref() ?>"><span><?php echo __('LOGOUT') ?></span></a>
+            </li>
+        </ul>
+    </div>
+<?php endif; ?>

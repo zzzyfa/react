@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="left">
+            <block class="Amasty\Rma\Block\Adminhtml\Status\Edit\Tabs" name="amasty_rma_status_edit_tabs" >
+                <arguments>
+                    <argument name="id" xsi:type="string">amasty_rma_status_edit_tabs</argument>
+                    <argument name="dest_element_id" xsi:type="string">edit_form</argument>
+                    <argument name="title" xsi:type="string" translate="true">Status Configuration</argument>
+                </arguments>
+                
+                <block class="Amasty\Rma\Block\Adminhtml\Status\Edit\Tab\General" name="amasty_rma_status_edit_tab_general"/>
+                <block class="Amasty\Rma\Block\Adminhtml\Status\Edit\Tab\Labels" name="amasty_rma_status_edit_tab_labels"/>
+                <block class="Amasty\Rma\Block\Adminhtml\Status\Edit\Tab\Templates" name="amasty_rma_status_edit_tab_templates"/>
+
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">general</argument>
+                    <argument name="block" xsi:type="string">amasty_rma_status_edit_tab_general</argument>
+                </action>
+
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">labels</argument>
+                    <argument name="block" xsi:type="string">amasty_rma_status_edit_tab_labels</argument>
+                </action>
+
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">templates</argument>
+                    <argument name="block" xsi:type="string">amasty_rma_status_edit_tab_templates</argument>
+                </action>
+            </block>
+        </referenceContainer>
+        <referenceContainer name="content">
+            <block class="Amasty\Rma\Block\Adminhtml\Status\Edit" name="amasty_rma_status_edit"/>
+        </referenceContainer>
+    </body>
+</page>

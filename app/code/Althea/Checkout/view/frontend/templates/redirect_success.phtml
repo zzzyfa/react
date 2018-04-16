@@ -1,0 +1,53 @@
+<?php /* @var Althea\Checkout\Block\DeepLink $block */ ?>
+<style>
+    .centered {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 300px;
+        text-align: center;
+    }
+
+    .notice {
+        padding: 15px 0;
+    }
+</style>
+<div class="centered">
+	<?php if (!$block->getUserAgent()->isAndroidOS()): ?>
+        <h1>You will be redirected in 5 seconds...</h1>
+        <div class="notice">
+            <span style="color: red;">IMPORTANT:</span> If this page does not redirect within 5 seconds, kindly click the button below to go back to store manually.
+        </div>
+	<?php else: ?>
+        <h1>Please click the button below to go back to store</h1>
+	<?php endif; ?>
+    <button type="button" id="back" class="action primary">Back to Althea</button>
+</div>
+<script type="text/javascript">
+    require(['jquery'], function ($) {
+
+        var deepLink  = "<?php echo $block->getSuccessDeepLink(); ?>";
+        var showError = <?php echo ($this->helper('Althea\Checkout\Helper\Config')->getIsFrontendShowError()) ? "true" : "false"; ?>;
+
+        if (showError) {
+
+            alert(deepLink);
+        }
+
+	    <?php if (!$block->getUserAgent()->isAndroidOS()): ?>
+        $(window).load(function () {
+
+            window.setTimeout(function () {
+
+                window.location.replace(deepLink);
+            }, 5000);
+        });
+	    <?php endif; ?>
+
+        $('#back').on('click', function() {
+
+            window.location.replace(deepLink);
+        });
+    });
+</script>

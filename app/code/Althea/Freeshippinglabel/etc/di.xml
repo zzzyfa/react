@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Althea\Freeshippinglabel\Api\Data\LabelInterface" type="Althea\Freeshippinglabel\Model\Label"/>
+    <preference for="Aheadworks\Freeshippinglabel\Model\Label" type="Althea\Freeshippinglabel\Model\Label"/>
+    <preference for="Aheadworks\Freeshippinglabel\Model\Label\Validator" type="Althea\Freeshippinglabel\Model\Label\Validator"/>
+    <preference for="Aheadworks\Freeshippinglabel\Block\Label" type="Althea\Freeshippinglabel\Block\Label"/>
+    <preference for="Aheadworks\Freeshippinglabel\Controller\Adminhtml\Settings\Index" type="Althea\Freeshippinglabel\Controller\Adminhtml\Settings\Index"/>
+    <preference for="Aheadworks\Freeshippinglabel\Controller\Adminhtml\Settings\Save" type="Althea\Freeshippinglabel\Controller\Adminhtml\Settings\Save"/>
+    <type name="Aheadworks\Freeshippinglabel\Model\Label">
+        <plugin name="Althea_Freeshippinglabel::labelPlugin" type="Althea\Freeshippinglabel\Plugin\Label" sortOrder="1"/>
+    </type>
+    <type name="Aheadworks\Freeshippinglabel\Model\LabelRepository">
+        <plugin name="Althea_Freeshippinglabel::labelRepositoryPlugin" type="Althea\Freeshippinglabel\Plugin\LabelRepository" sortOrder="1"/>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="aw_fslabel_label_grid_data_source" xsi:type="string">Althea\Freeshippinglabel\Model\ResourceModel\Label\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

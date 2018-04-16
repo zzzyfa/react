@@ -1,0 +1,137 @@
+
+.form-login {
+  .actions-toolbar {
+    flex-direction: row-reverse;
+  }
+}
+
+.form-create-account,
+.form-edit-account,
+.form-address-edit {
+  .fieldset {
+    margin-bottom: $indent-base;
+  }
+  .actions-toolbar {
+    flex-direction: row-reverse;
+    .secondary {
+    }
+  }
+}
+
+//
+//  Account main
+//  _____________________________________________
+
+body.account {
+  //Block styling
+  .page-title {
+    padding-bottom: 43px;
+    border-bottom: 1px solid $theme-line-1;
+    margin-bottom: 65px;
+  }
+  .block-title {
+    position: relative;
+    margin-bottom: 47px;
+    .action {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+  //Box styling
+  .box {
+    address {
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.block-dashboard-info,
+.block-dashboard-addresses {
+  margin-bottom: 40px;
+  .block-title {
+    margin-bottom: 50px;
+    font-size: 26px;
+  }
+}
+
+.account {
+  .legend {
+    margin-bottom: $indent-small;
+    display: block;
+    text-transform: uppercase;
+    font-weight: 600;
+    position: relative;
+  }
+}
+
+.order-items {
+  margin-bottom: 30px;
+}
+
+.account-nav {
+  .item {
+    margin-bottom: 1px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &.current {
+      strong {
+        font-weight: normal;
+      }
+    }
+  }
+}
+
+.login-container {
+  .field.note {
+    border-bottom: 1px solid $theme-line-1;
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+  }
+  @media (min-width: $screen-md-min) {
+    .field {
+      @include make-flex;
+      @include align-items(center);
+    }
+    .label {
+      @include flex-basis(10%);
+    }
+    .control {
+      @include flex-basis(90%);
+    }
+  }
+  .block-customer-login {
+    border-bottom: 1px solid $theme-line-1;
+    padding-bottom: 30px;
+    margin-bottom: 50px;
+  }
+  .block__title {
+    margin-bottom: 25px;
+  }
+  .block-social-login {
+    border-bottom: 1px solid $theme-line-1;
+    padding-bottom: 25px;
+    ul {
+      @include make-flex;
+      @include flex-wrap(wrap);
+      @include make-row();
+      li {
+        @include make-col();
+        @include flex-basis(50%);
+        a {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+.form.password.forget {
+  max-width: 905px;
+  margin: 0 auto;
+  .field.note {
+    border-bottom: 1px solid $theme-line-1;
+    margin-bottom: 2em;
+    padding-bottom: 2em;
+  }
+}

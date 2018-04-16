@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magestore\InventorySuccess\Model\ResourceModel\InstallManagement"
+                type="Althea\InventorySuccess\Model\ResourceModel\InstallManagement"/>
+    <preference for="Magestore\InventorySuccess\Model\ResourceModel\Warehouse\Stock\Collection"
+                type="Althea\InventorySuccess\Model\ResourceModel\Warehouse\Stock\Collection"/>
+    <preference for="Magestore\InventorySuccess\Model\Service\Sales\PendingOrderItemService"
+                type="Althea\InventorySuccess\Model\Service\Sales\PendingOrderItemService"/>
+    <preference for="Magestore\InventorySuccess\Observer\Sales\Order\Grid\CollectionLoadBefore"
+                type="Althea\InventorySuccess\Observer\Sales\Order\Grid\CollectionLoadBefore"/>
+
+    <type name="Magestore\InventorySuccess\Block\Adminhtml\ManageStock\AbstractGridProduct">
+        <plugin name="Althea_InventorySuccess::abstractGridProductPlugin"
+                type="Althea\InventorySuccess\Plugin\Block\Adminhtml\ManageStock\AbstractGridProductPlugin"
+                sortOrder="1"/>
+    </type>
+</config>

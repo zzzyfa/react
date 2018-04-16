@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Xtento_CustomTrackers" setup_version="2.1.0">
+        <sequence>
+            <module name="Magento_Shipping"/>
+            <module name="Xtento_XtCore"/>
+        </sequence>
+    </module>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomTrackers (2.1.0)
+ * ID:            pla2jYgPEb1bu8ncBMlGtw6aKM5PQ018LXPJPkLn5XM=
+ * Packaged:      2017-06-01T10:42:53+00:00
+ * Last Modified: 2017-05-12T13:07:45+00:00
+ * File:          app/code/Xtento/CustomTrackers/etc/module.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

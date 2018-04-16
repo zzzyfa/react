@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+-->
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <head>
+        <css src="Amasty_Rma::css/main.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Amasty\Rma\Block\Request\History" name="amrma.customer.history" cacheable="false">
+                <arguments>
+                    <argument name="mode" xsi:type="string">customer</argument>
+                </arguments>
+            </block>
+            <block class="Magento\Customer\Block\Account\Dashboard" name="customer.account.link.back" template="account/link/back.phtml" cacheable="false"/>
+        </referenceContainer>
+    </body>
+</page>

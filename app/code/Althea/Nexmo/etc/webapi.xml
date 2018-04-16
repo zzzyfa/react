@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="../../../../../app/code/Magento/Webapi/etc/webapi.xsd">
+
+    <!-- Create verification request -->
+    <route url="/V1/nexmoverify/phoneNo/:phoneNo/countryCode/:countryCode" method="GET">
+        <service class="Althea\Nexmo\Api\VerificationApiInterface" method="request"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+    <!-- Verify verification attempt -->
+    <route url="/V1/nexmoverify/requestId/:requestId/code/:code" method="GET">
+        <service class="Althea\Nexmo\Api\VerificationApiInterface" method="verify"/>
+        <resources>
+            <resource ref="self"/>
+        </resources>
+        <data>
+            <parameter name="customerId" force="true">%customer_id%</parameter>
+        </data>
+    </route>
+
+</routes>

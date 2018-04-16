@@ -1,0 +1,75 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+?>
+<?php /** @var \Amasty\Rma\Block\Guest\History $block */ ?>
+
+<?= $block->getLayout()->getMessagesBlock()->getGroupedHtml() ?>
+<?php $_requests = $block->getCollection(); ?>
+<div class="amrma-history-header">
+    <?php $_orders = $block->getAvailableOrders(); ?>
+    <?php if ($_orders): ?>
+        <select id="amasty_rma_orders">
+            <?php foreach ($_orders as $orderId => $label): ?>
+                <option value="<?= $block->getNewUrl($orderId) ?>"><?= $label ?></option>
+            <?php endforeach; ?>
+        </select>
+        <button type="button"
+                class="action primary"
+                onclick="window.location=jQuery('#amasty_rma_orders').val()"
+        >
+            <?= __("Return")?>
+        </button>
+        <h4><?= __("Recent orders. You can file return for an older order at 'My Orders' page.")?></h4>
+    <?php else : ?>
+        <p><?= __('No orders available for RMA creation.'); ?></p>
+    <?php endif ?>
+</div>
+<div class="dashboard">
+    <div class="box-account box-recent">
+        <?= $block->getChildHtml('amrma_pager') ?>
+        <?php if ($_requests->getSize()): ?>
+            <div class="table-wrapper">
+                <table class="data table table-order-items history" id="my-rma-table">
+                    <thead>
+                    <tr>
+                        <th scope="col" class="col id"><?= __('ID') ?></th>
+                        <th scope="col" class="col date"><?= __('Date') ?></th>
+                        <th scope="col" class="col order-number"><?= __('Order #') ?></th>
+                        <th scope="col" class="col status">Status</th>
+                        <th scope="col" class="col actions">&nbsp;</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <?php /** @var \Amasty\Rma\Model\Request $_request */
+                    foreach ($_requests as $_request): ?>
+                        <tr>
+                            <td data-th="ID" class="col id"><?= $_request->getId() ?></td>
+                            <td data-th="Date" class="col date"><?= $block->formatDate($_request->getData('created_at')) ?></td>
+                            <td data-th="Order #" class="col id"><?= $_request->getData('increment_id') ?></td>
+                            <td data-th="Status" class="col status"><?= $_request->getStatusLabel() ?></td>
+                            <td data-th="Actions" class="col actions">
+                                <a href="<?= $block->getViewUrl($_request) ?>" class="action view">
+                                    <span><?= __('View') ?></span>
+                                </a>
+
+                                <a href="<?= $block->getDeleteUrl($_request) ?>"
+                                   class="action delete"
+                                   onclick="if (!confirm('<?= __("Delete")?>?')) return false;">
+                                    <span><?= __('Delete') ?></span>
+                                </a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </div>
+        <?php else: ?>
+            <p><?= __('You have placed no return requests.'); ?></p>
+        <?php endif ?>
+        <?= $block->getChildHtml('amrma_pager') ?>
+    </div>
+</div>

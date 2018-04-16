@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="empty" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <title>Althea Checkout Redirect</title>
+    </head>
+    <body>
+        <referenceBlock name="page.main.title" remove="true"/>
+        <referenceContainer name="content">
+            <referenceBlock name="authentication-popup" remove="true"/>
+            <block class="Althea\Checkout\Block\Onepage" name="althea-mobile-checkout-molpay-seamless" template="Althea_Checkout::molpay_seamless.phtml" cacheable="false"/>
+        </referenceContainer>
+        <referenceBlock name="copyright" remove="true"/>
+    </body>
+</page>

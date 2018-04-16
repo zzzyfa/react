@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <!--<referenceBlock name="authentication-popup" remove="true"/>-->
+
+        <referenceContainer name="header.container">
+            <!-- header top -->
+            <container name="header.top" htmlTag="div" htmlId="header-top" htmlClass="header-top" before='-'>
+                <!-- header top notice for cms -->
+                <container name="header.top.notice" htmlTag="div" htmlId="header-top-notice"
+                           htmlClass="header-top-notice" before='-'>
+                </container>
+
+                <!-- header top link -->
+                <container name="header.top.link" htmlTag="div" htmlId="header-top-link" htmlClass="header-top-link"
+                           before='-'>
+                    <container name="header.top.link.website_link" htmlClass="header-top-link-website-link"
+                               htmlTag="div"
+                               before="-">
+                    </container>
+                    <container name="header.top.link.account_link" htmlId="account-link"
+                               htmlClass="header-top-link-account-link" htmlTag="div"
+                               before="-">
+                        <container name="header.top.link.account_link.title"
+                                   htmlClass="header-top-link-account-link-title" htmlTag="div"
+                                   before="-">
+                        </container>
+
+                        <container name="header.top.link.account_link.content"
+                                   htmlClass="header-top-link-account-link-content" htmlTag="div"
+                                   after="-"/>
+                    </container>
+                </container>
+                <container name="header.top.link.addons" as="header_top_link_addons" htmlTag="div" htmlClass="header-top-link-addons" label="Header top link addons"/>
+            </container>
+        </referenceContainer>
+
+
+        <move element="website-link" destination="header.top.link.website_link"/>
+        <move element="mini.login.title" destination="header.top.link.account_link.title" after="-"/>
+        <move element="mini.login" destination="header.top.link.account_link.content" after="-"/>
+        <move element="social.login.link" destination="header.top.link.account_link.content" after="-"/>
+        <!--<move element="header.links" destination="header.top.link.account_link.content" after="-"/>-->
+
+        <!-- Theme XML -->
+        <referenceContainer name="rd.navbar" htmlClass="layout_1">
+        </referenceContainer>
+
+        <!--<move element="header.panel" destination="rd.navbar" after="header_info"/>-->
+        <referenceBlock name="header.panel" remove="true"/>
+
+        <!-- Header Panel -->
+        <referenceContainer name="header.panel.grid-container">
+            <container name="panel.container.wrap" htmlClass="panel-container-wrap" htmlTag="div"/>
+        </referenceContainer>
+
+        <!--<move element="header" destination="panel.container.wrap" before="-"/> &lt;!&ndash; Welcome message &ndash;&gt;-->
+        <!--<move element="header.switchers" destination="panel.container.wrap" after="header"/>-->
+        <move element="rd.navbar.collapse" destination="panel.container.wrap" after="-"/> <!-- Top links -->
+        <!--<move element="minicart" destination="panel.container.wrap" after="header.switchers"/>-->
+        <move element="catalog.topnav" destination="header-wrapper.grid-container"/>
+
+        <move element="top.search" destination="header-wrapper.grid-container" after="catalog.topnav"/>
+        <move element="minicart" destination="header-wrapper.grid-container" after="top.search"/>
+
+        <!-- we don't need store_language and currency in header -->
+        <!--<referenceBlock name="header.switchers" remove="true" />-->
+        <referenceBlock name="store_language" remove="true"/>
+        <referenceBlock name="currency" remove="true"/>
+        <!--<referenceBlock name="header" remove="true"/>-->
+
+        <!--<move element="website-link" destination="panel.container.wrap" after="header"/>-->
+
+
+        <!--<referenceBlock name="rewards-link" remove="true"/>-->
+
+        <referenceContainer name="main">
+            <container name="content.column.class" htmlTag="div" htmlClass="content-flex-column">
+                <container name="content.column" label="Main Content Area column"/>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="columns">
+            <container name="after.main.columns" label="After Main Columns"/>
+        </referenceContainer>
+
+        <referenceBlock name="checkout.cart.item.renderers">
+            <block class="Magento\Checkout\Block\Cart\Item\Renderer" as="default" template="Magento_Checkout::cart/item/default.phtml">
+                <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions" name="checkout.cart.item.renderers.default.actions" as="actions">
+                    <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Edit" name="checkout.cart.item.renderers.default.actions.edit" template="Magento_Checkout::cart/item/renderer/actions/edit.phtml"/>
+                    <block class="Magento\Checkout\Block\Cart\Item\Renderer\Actions\Remove" name="checkout.cart.item.renderers.default.actions.remove" template="Magento_Checkout::cart/item/renderer/actions/remove.phtml"/>
+                </block>
+            </block>
+        </referenceBlock>
+
+        <!-- Footer -->
+        <!--<referenceContainer name="footer" htmlClass="page-footer layout_1"/>-->
+        <!-- use module LayoutSwitcher. File footer_layout_2.xml and footer_layout_3.xml  .... -->
+        <!-- Footer END -->
+
+        <!-- Footer -->
+        <referenceContainer name="footer" htmlClass="page-footer" htmlTag="footer">
+            <container name="footer.grid-container" htmlClass="container content footer" htmlTag="div" before="-">
+                <container name="footer.grid-row" htmlClass="row" htmlTag="div">
+                    <container name="footer.grid-col1" htmlClass="col-sm-3" htmlTag="div">
+                        <block type="cms/block" class="Magento\Cms\Block\Block" name="footer_col_1">
+                            <arguments>
+                                <argument name="block_id" xsi:type="string">footer_col_1</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                    <container name="footer.grid-col2" htmlClass="col-sm-3" htmlTag="div">
+                        <block type="cms/block" class="Magento\Cms\Block\Block" name="footer_col_2" before="-">
+                            <arguments>
+                                <argument name="block_id" xsi:type="string">footer_col_2</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                    <container name="footer.grid-col3" htmlClass="col-sm-3" htmlTag="div">
+                        <block type="cms/block" class="Magento\Cms\Block\Block" name="footer_col_3" before="-">
+                            <arguments>
+                                <argument name="block_id" xsi:type="string">footer_col_3</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                    <container name="footer.grid-col4" htmlClass="col-sm-3" htmlTag="div">
+                        <block type="cms/block" class="Magento\Cms\Block\Block" name="footer_col_4" after="-">
+                            <arguments>
+                                <argument name="block_id" xsi:type="string">footer_col_4</argument>
+                            </arguments>
+                        </block>
+                    </container>
+                </container>
+            </container>
+        </referenceContainer>
+
+        <move element="form.subscribe" destination="footer.grid-col4" before="-"/>
+        <move element="copyright"      destination="footer.grid-col1" after="-"/>
+    </body>
+</page>

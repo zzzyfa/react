@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<page layout="3columns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="default_head_blocks"/>
+    <body>
+        <!-- Theme XML -->
+            <referenceContainer name="rd.navbar" htmlClass="layout_1" />
+
+            <move element="header.panel" destination="rd.navbar" after="header_info"/>
+            <!-- Header Panel -->
+            <referenceContainer name="header.panel.grid-container">
+                <container name="panel.container.wrap" htmlClass="panel-container-wrap" htmlTag="div"/>
+            </referenceContainer>
+            <move element="header" destination="panel.container.wrap" before="-"/> <!-- Welcome message -->
+            <move element="header.switchers" destination="panel.container.wrap" after="header"/>
+            <move element="rd.navbar.collapse" destination="panel.container.wrap" after="-"/> <!-- Top links -->
+            <move element="minicart" destination="panel.container.wrap" after="header.switchers"/>
+            <move element="catalog.topnav" destination="header-wrapper.grid-container"/>
+
+            <!-- use module LayoutSwitcher. File header_layout_2.xml and header_layout_3.xml .... -->
+        <!-- Header Panel END -->
+
+
+
+        <referenceContainer name="main">
+            <container name="content.column.class" htmlTag="div" htmlClass="content-flex-column">
+                <container name="content.column" label="Main Content Area column"/>
+            </container>
+        </referenceContainer>
+        <referenceContainer name="columns">
+            <container name="after.main.columns" label="After Main Columns" />
+        </referenceContainer>
+
+
+        <referenceBlock name="category.products.list">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Magento_Catalog::product/list_layout_1.phtml</argument>
+            </action>
+        </referenceBlock>
+        <referenceBlock name="search_result_list">
+            <action method="setTemplate">
+                <argument name="template" xsi:type="string">Magento_Catalog::product/list_layout_1.phtml</argument>
+            </action>
+        </referenceBlock>
+
+
+
+        <!-- Footer -->
+            <referenceContainer name="footer" htmlClass="page-footer layout_1" />
+            <!-- use module LayoutSwitcher. File footer_layout_2.xml and footer_layout_3.xml  .... -->
+        <!-- Footer END -->
+
+    </body>
+</page>

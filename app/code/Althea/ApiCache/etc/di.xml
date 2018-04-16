@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\AppInterface">
+        <plugin name="althea_apicache_app_interface" type="Althea\ApiCache\Plugin\AppInterfacePlugin" sortOrder="2"/>
+    </type>
+    <type name="Althea\ApiCache\Plugin\AppInterfacePlugin">
+        <arguments>
+            <argument name="cacheManagement" xsi:type="object">Althea\ApiCache\Model\CacheManagement</argument>
+            <argument name="configManagement" xsi:type="object">Althea\ApiCache\Model\ConfigManagement</argument>
+        </arguments>
+    </type>
+    <type name="Althea\ApiCache\Model\CacheManagement">
+        <arguments>
+            <argument name="cacheType" xsi:type="object">Althea\ApiCache\Model\CacheType</argument>
+            <argument name="keys" xsi:type="array">
+                <item name="base" xsi:type="object">MSP\APIEnhancer\Model\CacheKeyProcessor\Base</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

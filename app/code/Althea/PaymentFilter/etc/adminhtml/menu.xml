@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Althea_PaymentFilter::althea" title="Althea" translate="title"
+             module="Althea_PaymentFilter" parent="Magento_Sales::sales" sortOrder="20"
+             dependsOnModule="Althea_PaymentFilter" resource="Althea_PaymentFilter::althea"/>
+        <add id="Althea_PaymentFilter::althea_paymentfilter_rules" title="Payment Filter Rules" translate="title"
+             module="Althea_PaymentFilter" parent="Althea_PaymentFilter::althea" sortOrder="10"
+             dependsOnModule="Althea_PaymentFilter" action="althea_paymentfilter/rule"
+             resource="Althea_PaymentFilter::althea_paymentfilter_rules"/>
+    </menu>
+</config>

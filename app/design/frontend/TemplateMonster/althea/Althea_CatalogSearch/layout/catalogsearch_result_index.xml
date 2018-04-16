@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="catalogsearch.leftnav" template="Althea_CatalogSearch::layer/view.phtml">
+            <block class="Althea\CatalogSearch\Block\Navigation\FilterRenderer"
+                   name="catalogsearch.navigation.renderer"
+                   as="renderer"
+                   template="Althea_CatalogSearch::layer/filter/default.phtml">
+
+                <block class="Althea\CatalogSearch\Block\Navigation\Renderer\Attribute"
+                       name="catalogsearch.navigation.renderer.attribute"
+                       template="Althea_CatalogSearch::layer/filter/attribute.phtml"
+                       after="-" />
+
+                <block class="Althea\CatalogSearch\Block\Navigation\Renderer\Category"
+                       name="catalogsearch.navigation.renderer.category"
+                       template="Althea_CatalogSearch::layer/filter/default.phtml" />
+            </block>
+        </referenceBlock>
+    </body>
+</page>

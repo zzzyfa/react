@@ -1,0 +1,34 @@
+.amrma-history-header #amasty_rma_orders {
+    width: auto;
+}
+
+.amasty-rma-request-view .buttons-set {
+    text-align: right;
+}
+
+.amasty-rma-request-edit .rma-additional {
+    margin: 30px auto 20px;
+}
+
+.amasty-rma-request-edit .table-bundle-items {
+    margin-top: 12px;
+}
+
+.amasty-rma-request-edit .summary {
+    margin: 7px auto 20px;
+}
+
+.amasty-rma-request-edit .item-actions {
+    text-align: right;
+}
+
+@media print {
+    .no-print, .no-print * {
+        display: none !important;
+    }
+}
+
+.amasty-rma-request-export .buttons {
+    padding-top: 20px;
+    text-align: center;
+}

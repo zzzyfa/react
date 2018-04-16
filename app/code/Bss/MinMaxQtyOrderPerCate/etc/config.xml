@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <minmaxqtypercate>
+            <bssmmqpc>
+                <enable>1</enable>
+                <show_category>1</show_category>
+                <mess_err_max>The max quantity allowed for purchase at category {{category_name}} is {{qty_limit}}  [ Product Name : {{product_name}} ]</mess_err_max>
+                <mess_err_min>The min quantity allowed for purchase at category {{category_name}} is {{qty_limit}} [ Product Name : {{product_name}} ]</mess_err_min>
+            </bssmmqpc>
+        </minmaxqtypercate>
+    </default>
+</config>

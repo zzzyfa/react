@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\ConfigurableProduct\Model\Product\Type\Configurable\Price" type="Althea\ConfigurableProduct\Model\Product\Type\Configurable\Price"/>
+    <preference for="Magento\ConfigurableProduct\Model\ResourceModel\Product\Indexer\Price\Configurable" type="Althea\ConfigurableProduct\Model\ResourceModel\Product\Indexer\Price\Configurable"/>
+    <preference for="Magento\ConfigurableProduct\Ui\DataProvider\Product\Form\Modifier\ConfigurablePanel" type="Althea\ConfigurableProduct\Ui\DataProvider\Product\Form\Modifier\ConfigurablePanel"/>
+</config>

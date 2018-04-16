@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Amasty_Rma::rma" title="RMA" module="Amasty_Rma" sortOrder="100" parent="Magento_Sales::sales" resource="Amasty_Rma::rma"/>
+        <add id="Amasty_Rma::requests" title="Requests" module="Amasty_Rma" sortOrder="10" parent="Amasty_Rma::rma" action="amasty_rma/request" resource="Amasty_Rma::requests"/>
+        <add id="Amasty_Rma::statuses" title="Statuses" module="Amasty_Rma" sortOrder="20" parent="Amasty_Rma::rma" action="amasty_rma/status" resource="Amasty_Rma::statuses"/>
+    </menu>
+</config>

@@ -1,0 +1,216 @@
+<?php
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+?>
+<?php
+/** @var \Amasty\Rma\Block\Request\Edit $block */
+/** @var \Magento\Sales\Model\Order $_order */
+$_order = $block->getOrder();
+
+$_resolutions = $block->getData('resolutions');
+$_conditions = $block->getData('conditions');
+$_reasons = $block->getData('reasons');
+$_request = $block->getRmaRequest();
+?>
+
+<div class="fieldset" data-role="rma-edit-form">
+    <form action="" method="post" data-mage-init='{"validation":{}}' enctype="multipart/form-data">
+        <table class="summary">
+            <tr>
+                <td><?= __('Order ID') ?></td>
+                <td><?= $_order->getIncrementId() ?></td>
+            </tr>
+            <tr>
+                <td><?= __('Customer Name') ?></td>
+                <td><?= $block->escapeHtml($_order->getCustomerName()) ?></td>
+            </tr>
+            <tr>
+                <td><?= __('Order Shipping Address') ?></td>
+                <td><?= $block->renderAddress($_order->getShippingAddress()) ?></td>
+            </tr>
+            <tr>
+                <td><?= __('Email Address') ?></td>
+                <td><?= $block->escapeHtml($_order->getCustomerEmail()) ?></td>
+            </tr>
+        </table>
+        <?php if ($block->getIsEnablePerItem()) : ?>
+            <div id="template_container" style="display: none;">
+                <fieldset class="fieldset order-details-items" data-role="rma-item">
+                    <div class="field required">
+                        <label class="label"><?= __('Item') ?></label>
+                        <div class="input-box">
+                            <?php $bundleID = 0; ?>
+                            <?php $html = []; ?>
+                            <select name="items[_index_][_rowId_][order_item_id]" class="input-text" data-role="item">
+                                <?php /** @var \Magento\Sales\Model\Order\Item $_item */ ?>
+                                <?php foreach ($block->getSelectItems() as $_item) : ?>
+                                    <option value="<?= $_item->getId()?>"><?= $block->escapeHtml($_item->getName())?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                        <?php /** @var \Magento\Sales\Model\Order\Item $bundle */ ?>
+                        <?php foreach ($block->getBundles() as $bundle) : ?>
+                            <div class="field" data-role="bundle_items" data-bundle-id="<?= $bundle->getId() ?>" style="display: none;">
+                                <table class="table table-bundle-items">
+                                    <thead>
+                                    <tr>
+                                        <th class="col"></th>
+                                        <th class="col"><?= __('Sub-items') ?></th>
+                                        <th class="col"><?= __('Remaining Qty') ?></th>
+                                        <th class="col qty"><?= __('Qty') ?></th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <?php /** @var \Magento\Sales\Model\Order\Item $item */ ?>
+                                    <?php foreach ($bundle->getChildrenItems() as $item) : ?>
+                                        <tr>
+                                            <td>
+                                                <input id="checkbox-bundle_index_-item<?= $item->getId() ?>-_rowId_" name="items[_index_][_rowId_][item<?= $item->getId() ?>][checked]" data-role="bundle_checkbox" data-bundle-id="<?= $bundle->getId() ?>" type="checkbox" value="<?= $item->getId() ?>" data-validate="{'amrma-validate-one-checked':true}" />
+                                            </td>
+                                            <td>
+                                                <label for="checkbox-bundle_index_-item<?= $item->getId() ?>-_rowId_"><?= $item->getName() ?></label>
+                                            </td>
+                                            <td class="a-center"><?= (int)$item->getData('available_qty') ?></td>
+                                            <td width="65">
+                                                <input type="text" data-role="bundle_qty" name="items[_index_][_rowId_][items][<?= $item->getId() ?>]" size="7" data-validate="{required:true, 'validate-not-negative-number':true}" max="<?= (int)$item->getData('available_qty')?>" style="display:none;" disabled="disabled" class="required-number"/>
+                                            </td>
+                                        </tr>
+                                    <?php endforeach ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <?php endforeach ?>
+                    </div>
+                    <div class="field required" data-role="qty_requested_block">
+                        <label for="items:qty_requested_index_-_rowId_" class="label"><?= __('Quantity To Return') ?></label>
+                        <div class="input-box">
+                            <input id="items:qty_requested_index_-_rowId_" type="text" class="input-text" data-validate="{required:true, 'validate-not-negative-number':true, 'validate-digits-range':true}" value="" name="items[_index_][_rowId_][qty_requested]" id="items:qty_requested_index_-_rowId_">
+                        </div>
+                    </div>
+                    <div class="field" data-role="remaining_quantity_block">
+                        <div class="input-box">
+                            <?= __('Remaining quantity');?>: <span data-role="remaining_quantity"></span>
+                        </div>
+                    </div>
+                    <div class="field required">
+                        <label class="label" for="items-_index_-resolution-_rowId_"><?= __('Resolution') ?></label>
+                        <div class="input-box">
+                            <select id="items-_index_-resolution-_rowId_" name="items[_index_][_rowId_][resolution]" class="input-text" >
+                                <?php foreach ($_resolutions as $_label) : ?>
+                                    <option><?= $_label ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field required">
+                        <label class="label" for="items-_index_-condition-_rowId_"><?= __('Item Condition') ?></label>
+                        <div class="input-box">
+                            <select id="items-_index_-condition-_rowId_" name="items[_index_][_rowId_][condition]" class="input-text" >
+                                <?php foreach ($_conditions as $_label) : ?>
+                                    <option><?= $_label ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="field required">
+                        <label for="items-_index_-reason-_rowId_" class="label"><?= __('Reason to Return') ?></label>
+                        <div class="input-box">
+                            <select id="items-_index_-reason-_rowId_" name="items[_index_][_rowId_][reason]" class="input-text" >
+                                <?php foreach ($_reasons as $_label) : ?>
+                                    <option><?= $_label ?></option>
+                                <?php endforeach ?>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="item-actions">
+                        <a data-role="add_item" href="javascript:void(0)"><?= __('Add Item To Return')?></a>&nbsp;|&nbsp;<a data-role="remove_item" href="javascript:void(0)"><?= __('Remove')?></a>
+                    </div>
+                </fieldset>
+            </div>
+        <?php else : ?>
+            <fieldset class="fieldset">
+                <div class="field required">
+                    <label class="label" for="resolution"><?= __('Resolution') ?></label>
+                    <select name="resolution" class="input-text" id="resolution">
+                        <?php foreach ($_resolutions as $_label) : ?>
+                            <option><?= $_label ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+                <div class="field required">
+                    <label class="label" for="condition"><?= __('Item Condition') ?></label>
+                    <select name="condition" class="input-text" id="condition">
+                        <?php foreach ($_conditions as $_label) : ?>
+                            <option><?= $_label ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+                <div class="field required">
+                    <label class="label" for="reason"><?= __('Reason to Return') ?></label>
+                    <select name="reason" class="input-text" id="reason">
+                        <?php foreach ($_reasons as $_label) : ?>
+                            <option><?= $_label ?></option>
+                        <?php endforeach ?>
+                    </select>
+                </div>
+            </fieldset>
+        <?php endif ?>
+
+        <div id="products"></div>
+        <?php if ($fields = $_request->getExtraFields()) : ?>
+        <fieldset class="fieldset info rma-additional">
+            <legend class="legend"><span><?= __($block->getExtraTitle()); ?></span></legend>
+            <?php foreach ($fields as $i => $field) : ?>
+                <div class="field required">
+                    <label class="label" for="field_<?= $i ?>"><?= $field['label'] ?></label>
+                    <div class="input-box">
+                        <input type="text" name="field_<?= $i ?>" class="input-text" data-validate="{required:true}" />
+                    </div>
+                </div>
+            <?php endforeach; ?>
+        </fieldset>
+        <?php endif ?>
+        <fieldset class="fieldset info rma-additional">
+            <legend class="legend"><span><?= __('Comment') ?></span></legend>
+            <div class="field">
+                <label class="label" for="comment"><?= __('Comment') ?></label>
+                <div class="input-box">
+                    <textarea id="comment" name="comment" class="input-text"></textarea>
+                </div>
+            </div>
+            <div class="field">
+                <label class="label"><?= __('File') ?></label>
+                <div class="input-box">
+                    <input type="file" name="file"/>
+                </div>
+            </div>
+        </fieldset>
+        <div class="buttons-set">
+            <p class="back-link"><a href="<?= $block->escapeUrl($block->getBackUrl()) ?>"><small>&laquo; </small><?= __('Back') ?></a></p>
+            <button type="submit" title="<?= __('Submit') ?>" class="action primary"><?= __('Submit') ?></button>
+        </div>
+    </form>
+</div>
+<script>
+    require(['jquery', 'mage/validation'], function($, validation) {
+        $.validator.addMethod('amrma-validate-one-checked', function (value, element, params) {
+            var bundleId = $(element).data('bundle-id');
+
+            return $('input[data-bundle-id='+bundleId+']:checked').length > 0;
+        }, '<?= __('Please select one of the options.')?>');
+    });
+
+    <?php if ($block->getIsEnablePerItem()): ?>
+    require(['jquery', 'Amasty_Rma/js/edit'], function($) {
+        $('[data-role="rma-edit-form"]').amrmaEdit({
+            items: <?= $block->getJsonConfig() ?>,
+            template: $('#template_container'),
+            parent: $('#products'),
+            defaultItem: <?= $block->getFirstItemId()->getId()?>
+        });
+    });
+    <?php endif ?>
+</script>

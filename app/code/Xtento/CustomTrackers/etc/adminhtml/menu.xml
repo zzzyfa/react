@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Xtento_CustomTrackers::configuration" title="Custom Carrier Trackers" module="Xtento_CustomTrackers" sortOrder="120" parent="Xtento_XtCore::extensions" action="adminhtml/system_config/edit/section/customtrackers" resource="Xtento_CustomTrackers::configuration"/>
+    </menu>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomTrackers (2.1.0)
+ * ID:            pla2jYgPEb1bu8ncBMlGtw6aKM5PQ018LXPJPkLn5XM=
+ * Packaged:      2017-06-01T10:42:53+00:00
+ * Last Modified: 2017-01-25T13:03:29+00:00
+ * File:          app/code/Xtento/CustomTrackers/etc/adminhtml/menu.xml
+ * Copyright:     Copyright (c) 2017 XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

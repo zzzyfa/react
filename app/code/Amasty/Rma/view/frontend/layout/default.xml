@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author Amasty Team
+ * @copyright Copyright (c) 2018 Amasty (https://www.amasty.com)
+ * @package Amasty_Rma
+ */
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="footer_links">
+            <!--HtmlLinkWithUrlBuilder is a virtualType created in frontend/di -->
+            <block class="HtmlLinkWithUrlBuilder" name="amasty-rma-login-link" after="sales-guest-form-link" ifconfig="amrma/general/guest">
+                <arguments>
+                    <argument name="label" xsi:type="string">Return requests</argument>
+                    <argument name="path" xsi:type="string">amasty_rma/guest/login</argument>
+                </arguments>
+            </block>
+        </referenceBlock>
+    </body>
+</page>

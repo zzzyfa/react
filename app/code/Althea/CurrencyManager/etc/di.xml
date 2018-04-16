@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Directory\Model\Currency" type="Althea\CurrencyManager\Model\Currency"/>
+    <preference for="Magento\Catalog\Block\Adminhtml\Product\Edit\Tab\Options\Option" type="Althea\CurrencyManager\Block\Adminhtml\Product\Edit\Tab\Options\Option"/>
+    <preference for="Magento\Catalog\Block\Adminhtml\Product\Helper\Form\Price" type="Althea\CurrencyManager\Block\Adminhtml\Product\Helper\Form\Price"/>
+
+    <type name="Magento\Framework\Locale\Format">
+        <plugin name="Althea_CurrencyManager::localeFormatPlugin" type="Althea\CurrencyManager\Plugin\LocaleFormatPlugin" sortOrder="1"/>
+    </type>
+
+    <type name="Magento\Framework\Locale\Currency">
+        <plugin name="Althea_CurrencyManager::localeCurrencyPlugin" type="Althea\CurrencyManager\Plugin\LocaleCurrencyPlugin" sortOrder="1"/>
+    </type>
+</config>

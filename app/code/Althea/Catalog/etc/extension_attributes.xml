@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Catalog\Api\Data\CategoryInterface">
+        <attribute code="sort_by_options" type="Magento\Eav\Api\Data\AttributeOptionInterface[]"/>
+        <attribute code="min_price" type="float"/>
+        <attribute code="max_price" type="float"/>
+        <attribute code="include_in_menu" type="boolean"/>
+    </extension_attributes>
+
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductLinkInterface">
+        <attribute code="id" type="integer"/>
+        <attribute code="name" type="string"/>
+        <attribute code="price" type="integer"/>
+        <attribute code="special_price" type="integer"/>
+        <attribute code="media_gallery_entries" type="\Magento\Catalog\Api\Data\ProductAttributeMediaGalleryEntryInterface[]"/>
+    </extension_attributes>
+
+    <extension_attributes for="Magento\Catalog\Api\Data\ProductInterface">
+        <attribute code="product_attributes" type="Althea\Catalog\Api\Data\AttributeInterface[]"/>
+    </extension_attributes>
+</config>

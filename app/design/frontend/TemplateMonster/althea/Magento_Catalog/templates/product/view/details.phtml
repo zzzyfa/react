@@ -1,0 +1,174 @@
+<?php
+/**
+ * Copyright © 2013-2017 Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+$_helper = $this->helper('Magento\Catalog\Helper\Output');
+
+function getDetailAttributes($product, $attributeName)
+{
+    $_attribute = $product->getResource()->getAttribute($attributeName);
+
+    if ($_attribute) {
+        $attr = [];
+        // Get Value
+        $attr['value'] = $_attribute->getFrontend()->getValue($product);
+
+        // Get Label
+        $attr['label'] = $_attribute->getStoreLabel();
+
+        return $attr;
+    }
+
+    return null;
+}
+
+$_product = $block->getProduct();
+$_detailWhatsgood = getDetailAttributes($_product, 'detailwhatsgood');
+$_detailSkintype = getDetailAttributes($_product, 'detailskintype');
+$_detailWhatsincluded = getDetailAttributes($_product, 'detailwhatsincluded');
+$_detailHowtouse = getDetailAttributes($_product, 'detailhowtouse');
+$_detailKeyingredients = getDetailAttributes($_product, 'detailkeyingredients');
+$_ingredients = getDetailAttributes($_product, 'ingredients');
+?>
+
+<?php if (!is_null($_detailWhatsgood) && $_detailWhatsgood['value'] &&
+    !is_null($_detailSkintype) && $_detailSkintype['value'] &&
+    !is_null($_detailWhatsincluded) && $_detailWhatsincluded['value'] &&
+    !is_null($_detailHowtouse) && $_detailHowtouse['value'] &&
+    !is_null($_detailKeyingredients) && $_detailKeyingredients['value']
+) : ?>
+    <div class="product-attributes">
+        <div class="row">
+            <div class="col-sm-4">
+                <?php if (!is_null($_detailWhatsgood)) : ?>
+                    <strong>
+                        <?php echo $_detailWhatsgood['label']; ?>
+                    </strong>
+                    <div class="product-attribute-value">
+                        <?php echo $_detailWhatsgood['value']; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!is_null($_detailSkintype)) : ?>
+                    <strong>
+                        <?php echo $_detailSkintype['label']; ?>
+                    </strong>
+                    <div class="product-attribute-value">
+                        <?php echo $_detailSkintype['value']; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-sm-4">
+                <?php if (!is_null($_detailHowtouse)) : ?>
+                    <strong>
+                        <?php echo $_detailHowtouse['label']; ?>
+                    </strong>
+                    <div class="product-attribute-value">
+                        <?php echo $_detailHowtouse['value']; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if (!is_null($_detailWhatsincluded)) : ?>
+                    <strong>
+                        <?php echo $_detailWhatsincluded['label']; ?>
+                    </strong>
+                    <div class="product-attribute-value">
+                        <?php echo $_detailWhatsincluded['value']; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+            <div class="col-sm-4">
+                <?php if (!is_null($_detailKeyingredients)) : ?>
+                    <strong>
+                        <?php echo $_detailKeyingredients['label']; ?>
+                    </strong>
+                    <div class="product-attribute-value">
+                        <?php echo $_detailKeyingredients['value']; ?>
+
+                        <?php if (!is_null($_ingredients) && !is_null($_ingredients['value'])) : ?>
+                            <span id="view-full-ingredients-action" class="popup-action">
+                                <?php echo __('View full ingredients list.'); ?>
+                            </span>
+                            <div id="ingredients-modal" style="display:none">
+                                <?php echo $_helper->productAttribute($_product, $_ingredients['value'], 'ingredients') ?>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    </div>
+<?php endif; ?>
+
+<?php if ($detailedInfoGroup = $block->getGroupChildNames('detailed_info', 'getChildHtml')): ?>
+    <div class="product info detailed">
+
+        <?php $layout = $block->getLayout(); ?>
+        <div class="product data items" data-mage-init='{"tabs":{"openedState":"active"}}'>
+            <?php foreach ($detailedInfoGroup as $name): ?>
+                <?php
+                $html = $layout->renderElement($name);
+                if (!trim($html)) {
+                    continue;
+                }
+                $alias = $layout->getElementAlias($name);
+                $label = $block->getChildData($alias, 'title');
+                ?>
+                <div class="data item title"
+                     aria-labeledby="tab-label-<?php /* @escapeNotVerified */
+                     echo $alias; ?>-title"
+                     data-role="collapsible" id="tab-label-<?php /* @escapeNotVerified */
+                echo $alias; ?>">
+                    <a class="data switch"
+                       tabindex="-1"
+                       data-toggle="switch"
+                       href="#<?php /* @escapeNotVerified */
+                       echo $alias; ?>"
+                       id="tab-label-<?php /* @escapeNotVerified */
+                       echo $alias; ?>-title">
+                        <?php /* @escapeNotVerified */
+                        echo $label; ?>
+                    </a>
+                </div>
+                <div class="data item content" id="<?php /* @escapeNotVerified */
+                echo $alias; ?>" data-role="content">
+                    <?php /* @escapeNotVerified */
+                    echo $html; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+<?php endif; ?>
+
+<?php if (!is_null($_ingredients) && !is_null($_ingredients['value'])) : ?>
+    <script type="application/javascript">
+        require([
+            'jquery',
+            'Magento_Ui/js/modal/modal',
+            'domReady'
+        ], function ($, modal, domReady) {
+            domReady(function () {
+                if ($('#ingredients-modal').length > 0) {
+                    var options = {
+                        type: 'popup',
+                        responsive: true,
+                        innerScroll: true,
+                        buttons: [{
+                            text: $.mage.__('Close'),
+                            class: '',
+                            click: function () {
+                                this.closeModal();
+                            }
+                        }]
+                    };
+
+                    var popup = modal(options, $('#ingredients-modal'));
+                    $("#view-full-ingredients-action").on('click', function () {
+                        $("#ingredients-modal").modal("openModal");
+                    });
+                }
+            })
+        });
+    </script>
+<?php endif; ?>

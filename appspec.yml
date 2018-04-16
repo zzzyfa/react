@@ -1,0 +1,36 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /var/www/magento2-release/build/release-candidate
+permissions:
+   - object: /var/www/magento2-release/build/release-candidate
+     pattern: "**"
+     owner: www-data
+     group: www-data
+     mode: 660
+     type:
+       - file
+   - object: /var/www/magento2-release/build/release-candidate
+     pattern: "**"
+     owner: www-data
+     group: www-data
+     mode: 770
+     type:
+       - directory
+hooks:
+  BeforeInstall:
+    - location: aws_scripts/unmount_nfs.sh
+      runas: root
+  AfterInstall:
+    - location: aws_scripts/composer_install.sh
+      runas: ubuntu
+    - location: aws_scripts/magento_build.sh
+      runas: ubuntu
+    - location: aws_scripts/release_sync.sh
+      runas: ubuntu
+    - location: aws_scripts/mount_nfs.sh
+      runas: root
+  ApplicationStart:
+    - location: aws_scripts/restart_nginx.sh
+      runas: root

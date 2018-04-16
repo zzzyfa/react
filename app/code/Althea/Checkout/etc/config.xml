@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <checkout>
+            <options>
+                <enable_logging>1</enable_logging>
+            </options>
+            <mobile>
+                <frontend_display_error>0</frontend_display_error>
+                <android_intent_deep_link>0</android_intent_deep_link>
+            </mobile>
+        </checkout>
+    </default>
+</config>

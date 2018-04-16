@@ -1,0 +1,16 @@
+<?xml version="1.0" ?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/versioning/store/:storeId/platform/:platform" method="GET">
+        <service class="Althea\MobileVersioning\Api\VersionRepositoryInterface" method="getVersion"/>
+        <resources>
+            <resource ref="Althea_MobileVersioning::versioning"/>
+        </resources>
+    </route>
+    <route url="/V1/versioning/store/:storeId" method="GET">
+        <service class="Althea\MobileVersioning\Api\VersionRepositoryInterface" method="getVersions"/>
+        <resources>
+            <resource ref="Althea_MobileVersioning::versioning"/>
+        </resources>
+    </route>
+</routes>

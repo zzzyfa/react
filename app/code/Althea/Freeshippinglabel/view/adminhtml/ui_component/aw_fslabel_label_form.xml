@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="buttons" xsi:type="array">
+            <item name="back" xsi:type="string">Althea\Freeshippinglabel\Block\Adminhtml\Settings\Edit\BackButton</item>
+            <item name="delete" xsi:type="string">Althea\Freeshippinglabel\Block\Adminhtml\Settings\Edit\DeleteButton</item>
+            <item name="reset" xsi:type="string">Althea\Freeshippinglabel\Block\Adminhtml\Settings\Edit\ResetButton</item>
+            <item name="save_and_continue" xsi:type="string">Althea\Freeshippinglabel\Block\Adminhtml\Settings\Edit\SaveAndContinueButton</item>
+        </item>
+    </argument>
+    <fieldset name="general_fieldset">
+        <field name="goal">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="notice" xsi:type="string" translate="true">In base currency [placeholders - {{ruleGoal}}, {{ruleGoalLeft}}]</item>
+                </item>
+            </argument>
+        </field>
+        <field name="min_item_qty">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Minimum Cart Item Qty</item>
+                    <item name="notice" xsi:type="string" translate="true">[placeholders - {{ruleMinItemQty}}, {{ruleMinItemQtyLeft}}]</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">label</item>
+                    <item name="sortOrder" xsi:type="number">40</item>
+                    <item name="dataScope" xsi:type="string">min_item_qty</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="validate-number" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+        <field name="identifier">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="dataType" xsi:type="string">text</item>
+                    <item name="label" xsi:type="string" translate="true">Identifier</item>
+                    <item name="formElement" xsi:type="string">input</item>
+                    <item name="source" xsi:type="string">label</item>
+                    <item name="sortOrder" xsi:type="number">50</item>
+                    <item name="dataScope" xsi:type="string">identifier</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="required-entry" xsi:type="boolean">true</item>
+                    </item>
+                </item>
+            </argument>
+        </field>
+    </fieldset>
+</form>

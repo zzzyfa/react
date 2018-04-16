@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Althea_Cms::althea" title="Althea" translate="title"
+             module="Althea_Cms" parent="Magento_Backend::content" sortOrder="50"
+             dependsOnModule="Althea_Cms" resource="Althea_Cms::althea"/>
+        <add id="Althea_Cms::althea_banner" title="Banners" translate="title"
+             module="Althea_Cms" parent="Althea_Cms::althea" sortOrder="10"
+             dependsOnModule="Althea_Cms" action="althea_cms/banner"
+             resource="Althea_Cms::althea"/>
+        <add id="Althea_Cms::althea_alert" title="Alerts" translate="title"
+             module="Althea_Cms" parent="Althea_Cms::althea" sortOrder="20"
+             dependsOnModule="Althea_Cms" action="althea_cms/alert"
+             resource="Althea_Cms::althea"/>
+    </menu>
+</config>
